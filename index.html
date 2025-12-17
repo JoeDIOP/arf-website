@@ -6,15 +6,15 @@
     <title>ARF - Alliance pour le Renouveau de Fandène</title>
     <style>
         :root {
-            --color-primary: #1877f2;
-            --color-secondary: #31a24c;
-            --color-accent: #e7f3ff;
-            --color-text: #050505;
-            --color-text-light: #65676b;
-            --color-border: #ccc;
-            --color-bg: #f0f2f5;
+            --color-primary: #1ABC4C;
+            --color-secondary: #5E5240;
+            --color-accent: #E8F4EE;
+            --color-text: #1A1A1A;
+            --color-text-light: #555;
+            --color-border: #D4C4B0;
+            --color-bg: #F5F1ED;
             --color-white: #fff;
-            --color-hover: #f0f0f0;
+            --color-hover: #F0EBE5;
         }
 
         * {
@@ -28,12 +28,14 @@
             background: var(--color-bg);
             color: var(--color-text);
             line-height: 1.5;
+            margin: 0;
+            padding: 0;
         }
 
         .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
+            width: 100%;
+            margin: 0;
+            padding: 0;
         }
 
         /* Header & Cover */
@@ -41,20 +43,57 @@
             background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
             color: white;
             padding: 40px 20px;
-            border-radius: 8px 8px 0 0;
+            border-radius: 0;
             text-align: center;
+            width: 100%;
         }
 
+        .header-top {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 0px;
+        }
+
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: white;
+            padding: 5px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: contain;
+        }
+
+        
+
         .header h1 {
-            font-size: 32px;
-            margin-bottom: 10px;
+            font-size: 40px;
+            margin-bottom: 5px;
             font-weight: 700;
         }
 
         .header .tagline {
-            font-size: 18px;
-            font-weight: 300;
+            font-size: 20px;
+            font-weight: 400;
             margin-bottom: 20px;
+            color: rgba(255,255,255,0.95);
         }
 
         .header-buttons {
@@ -62,6 +101,38 @@
             gap: 10px;
             justify-content: center;
             flex-wrap: wrap;
+        }
+
+        /* Social Links */
+        .social-links {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 10px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            color: white;
+            font-size: 20px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .social-link:hover {
+            background: white;
+            color: var(--color-primary);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
 
         .btn {
@@ -82,29 +153,35 @@
         }
 
         .btn-primary:hover {
-            background: var(--color-accent);
+            background: #F0EBE5;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
 
         .btn-secondary {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.25);
             color: white;
-            border: 1px solid white;
+            border: 2px solid white;
         }
 
         .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.35);
+            transform: translateY(-2px);
         }
 
         /* Main Content */
         .content {
             background: white;
-            border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border-radius: 0;
+            box-shadow: none;
+            width: 100%;
         }
 
         .section {
-            padding: 20px;
+            padding: 60px 40px;
             border-bottom: 1px solid var(--color-border);
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .section:last-child {
@@ -114,7 +191,7 @@
         .section-title {
             font-size: 18px;
             font-weight: 700;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             color: var(--color-primary);
             display: flex;
             align-items: center;
@@ -128,7 +205,7 @@
         .text-content {
             color: var(--color-text-light);
             line-height: 1.6;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
         }
 
         /* Cards */
@@ -141,9 +218,16 @@
 
         .card {
             background: var(--color-accent);
-            padding: 15px;
+            padding: 20px;
             border-radius: 8px;
-            border-left: 4px solid var(--color-secondary);
+            border-left: 5px solid var(--color-primary);
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(26, 188, 76, 0.08);
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(26, 188, 76, 0.15);
         }
 
         .card-title {
@@ -244,10 +328,16 @@
         }
 
         .value-item {
-            background: linear-gradient(135deg, rgba(24, 119, 242, 0.1) 0%, rgba(49, 162, 76, 0.1) 100%);
-            padding: 12px;
-            border-radius: 6px;
-            border-left: 3px solid var(--color-secondary);
+            background: linear-gradient(135deg, rgba(26, 188, 76, 0.08) 0%, rgba(94, 82, 64, 0.08) 100%);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--color-primary);
+            transition: all 0.3s ease;
+        }
+
+        .value-item:hover {
+            background: linear-gradient(135deg, rgba(26, 188, 76, 0.15) 0%, rgba(94, 82, 64, 0.12) 100%);
+            transform: translateX(4px);
         }
 
         .value-item strong {
@@ -255,6 +345,7 @@
             color: var(--color-primary);
             margin-bottom: 5px;
             font-size: 13px;
+            font-weight: 700;
         }
 
         .value-item span {
@@ -286,13 +377,20 @@
 
         .stat {
             text-align: center;
-            padding: 15px;
+            padding: 20px;
             background: var(--color-accent);
-            border-radius: 6px;
+            border-radius: 8px;
+            border-top: 4px solid var(--color-primary);
+            transition: all 0.3s ease;
+        }
+
+        .stat:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(26, 188, 76, 0.12);
         }
 
         .stat-number {
-            font-size: 24px;
+            font-size: 32px;
             font-weight: 700;
             color: var(--color-primary);
         }
@@ -375,9 +473,33 @@
         }
 
         /* Responsive */
+        @media (max-width: 1024px) {
+            .section {
+                padding: 40px 30px;
+            }
+
+            .logo {
+                width: 80px;
+                height: 80px;
+            }
+        }
+
         @media (max-width: 768px) {
+            .header {
+                padding: 30px 20px;
+            }
+
             .header h1 {
-                font-size: 24px;
+                font-size: 26px;
+            }
+
+            .header-top {
+                flex-direction: column;
+                margin-bottom: 15px;
+            }
+
+            .section {
+                padding: 30px 20px;
             }
 
             .cards-grid {
@@ -395,6 +517,15 @@
             .btn {
                 width: 100%;
             }
+
+            .logo {
+                width: 70px;
+                height: 70px;
+            }
+
+            .motto {
+                font-size: 11px;
+            }
         }
     </style>
 </head>
@@ -402,11 +533,31 @@
     <div class="container">
         <!-- Header -->
         <div class="header">
+            <div class="header-top">
+                <div class="logo-container">
+                    <div class="logo">
+                        <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/90c31373-ed98-4978-8d2a-221117220d4b" alt="Logo ARF">
+                    </div>
+                </div>
+            </div>
             <h1>🌍 Alliance pour le Renouveau de Fandène</h1>
-            <p class="tagline"><strong>Pour un Fandène uni, digne et prospère</strong></p>
+            <p class="tagline">Pour un Fandène uni, digne et prospère</p>
             <div class="header-buttons">
                 <button class="btn btn-primary" onclick="openModal('join-modal')">Rejoindre le mouvement</button>
                 <button class="btn btn-secondary" onclick="openModal('contact-modal')">Nous contacter</button>
+            </div>
+            
+            <!-- Social Media Links -->
+            <div class="social-links">
+                <a href="https://www.facebook.com/profile.php?id=61585241401932" target="_blank" rel="noopener noreferrer" class="social-link" title="Suivez-nous sur Facebook">
+                    f
+                </a>
+                <a href="https://wa.me/221XXXXXXXXX" target="_blank" rel="noopener noreferrer" class="social-link" title="Contactez-nous sur WhatsApp">
+                    💬
+                </a>
+                <a href="mailto:arf.fandene@gmail.com" class="social-link" title="Envoyez-nous un email">
+                    ✉️
+                </a>
             </div>
         </div>
 
@@ -418,10 +569,11 @@
                     <span class="icon">📋</span> Qui sommes-nous ?
                 </div>
                 <p class="text-content">
-                    L'<strong>Alliance pour le Renouveau de Fandène (ARF)</strong> est un mouvement citoyen militant né de la volonté de promouvoir un développement durable et inclusif de la Commune de Fandène. Nous rassemblons des acteurs locaux, des jeunes, des femmes, des leaders communautaires et des sympathisants engagés dans la transformation socio-économique de notre localité.
+                    L'<strong>Alliance pour le Renouveau de Fandène (ARF)</strong> est un mouvement citoyen militant né de la volonté de promouvoir un développement durable et inclusif de la Commune de Fandène. Nous croyons en un développement ancré localement d'abord, pour se déployer ensuite au niveau national. Nous rassemblons des acteurs locaux, des jeunes, des femmes, des leaders communautaires et des sympathisants engagés dans la transformation socio-économique de notre localité.
                 </p>
+
                 <p class="text-content">
-                    Fandène, autrefois modèle de dynamisme et de prospérité, fait face à des défis majeurs. L'ARF s'engage à revitaliser les secteurs clés tout en préservant nos traditions et renforçant la cohésion sociale.
+                    <strong>Fandène</strong>, autrefois identifié comme un modèle de dynamisme et de prospérité, fait face à des défis majeurs qui menacent son avenir. L'ARF s'engage à revitaliser les secteurs clés tout en préservant nos traditions et renforçant la cohésion sociale.
                 </p>
             </div>
 
@@ -454,11 +606,11 @@
                 <div class="cards-grid">
                     <div class="card">
                         <div class="card-title">1️⃣ Économie Locale</div>
-                        <div class="card-text">Re-lancer l'agriculture durable, entrepreneuriat et valorisation des savoir-faire traditionnels</div>
+                        <div class="card-text">Re-lancer l'agriculture durable, l'entrepreneuriat et la valorisation des savoir-faire traditionnels</div>
                     </div>
                     <div class="card">
                         <div class="card-title">2️⃣ Services de Base</div>
-                        <div class="card-text">Renforcer éducation, santé et infrastructures pour améliorer la qualité de vie</div>
+                        <div class="card-text">Renforcer l'éducation, la santé et les infrastructures pour améliorer la qualité de vie</div>
                     </div>
                     <div class="card">
                         <div class="card-title">3️⃣ Engagement Citoyen</div>
@@ -508,70 +660,6 @@
                 </div>
             </div>
 
-            <!-- Posts Section -->
-            <div class="section">
-                <div class="section-title">
-                    <span class="icon">📢</span> Actualités & Engagements
-                </div>
-
-                <div class="post">
-                    <div class="post-header">
-                        <div class="post-avatar">A</div>
-                        <div class="post-info">
-                            <div class="post-author">Alliance pour le Renouveau</div>
-                            <div class="post-time">Aujourd'hui</div>
-                        </div>
-                    </div>
-                    <div class="post-body">
-                        🌱 <strong>Engagement pour l'Agriculture Durable</strong><br><br>
-                        Nous mettons en place un programme de soutien aux agriculteurs locaux avec accès aux technologies modernes, amélioration des sols et gestion durable des ressources en eau. Ensemble, relançons l'agriculture de Fandène !
-                    </div>
-                    <div class="post-actions">
-                        <button class="action-btn">👍 J'aime</button>
-                        <button class="action-btn">💬 Commenter</button>
-                        <button class="action-btn">↗️ Partager</button>
-                    </div>
-                </div>
-
-                <div class="post">
-                    <div class="post-header">
-                        <div class="post-avatar">A</div>
-                        <div class="post-info">
-                            <div class="post-author">Alliance pour le Renouveau</div>
-                            <div class="post-time">Il y a 2 jours</div>
-                        </div>
-                    </div>
-                    <div class="post-body">
-                        🏥 <strong>Amélioration des Services de Santé</strong><br><br>
-                        Construction d'une ambulance, développement des infrastructures de santé primaire et amélioration de l'accès aux soins. Notre vision : une Fandène où chacun peut se soigner dignement près de chez lui.
-                    </div>
-                    <div class="post-actions">
-                        <button class="action-btn">👍 J'aime</button>
-                        <button class="action-btn">💬 Commenter</button>
-                        <button class="action-btn">↗️ Partager</button>
-                    </div>
-                </div>
-
-                <div class="post">
-                    <div class="post-header">
-                        <div class="post-avatar">A</div>
-                        <div class="post-info">
-                            <div class="post-author">Alliance pour le Renouveau</div>
-                            <div class="post-time">Il y a 5 jours</div>
-                        </div>
-                    </div>
-                    <div class="post-body">
-                        📚 <strong>Éducation & Formation pour la Jeunesse</strong><br><br>
-                        Création d'une école de formation locale, amélioration des infrastructures scolaires et développement de la formation professionnelle. Investissons dans nos jeunes, c'est investir dans l'avenir de Fandène !
-                    </div>
-                    <div class="post-actions">
-                        <button class="action-btn">👍 J'aime</button>
-                        <button class="action-btn">💬 Commenter</button>
-                        <button class="action-btn">↗️ Partager</button>
-                    </div>
-                </div>
-            </div>
-
             <!-- Engagement Stats -->
             <div class="section">
                 <div class="section-title">
@@ -596,7 +684,7 @@
             <!-- Call to Action -->
             <div class="section" style="background: linear-gradient(135deg, rgba(24, 119, 242, 0.05) 0%, rgba(49, 162, 76, 0.05) 100%); border-radius: 8px;">
                 <div class="section-title">
-                    <span class="icon">🤝</span> Rejoignez-nous
+                    <span class="icon">🤝</span> Rejoignez-nous, vos idées comptent !
                 </div>
                 <p class="text-content">
                     Fandène change ! Que vous soyez agriculteur, entrepreneur, jeune, femme, leader communautaire ou simplement passionné par le développement de notre localité, il y a une place pour vous dans l'ARF.
@@ -605,10 +693,12 @@
                     <strong>Comment participer ?</strong><br>
                     • Adhérez au mouvement<br>
                     • Participez à nos réunions et forums<br>
-                    • Contribuez à nos initiatives<br>
+                    • Partagez vos idées innovantes<br>
                     • Diffusez notre message<br>
+                    • Soutenez nos projets<br>
+                    • Suivez notre page Facebook<br>
                     <br>
-                    💬 <strong>Contactez-nous pour plus d'informations</strong>
+                    💬 <strong>Contactez-nous pour plus d'informations...</strong>
                 </div>
                 <div style="text-align: center; margin-top: 20px;">
                     <button class="btn btn-primary" onclick="openModal('join-modal')">Devenir membre</button>
@@ -639,6 +729,14 @@
                     <label>Comment participeriez-vous ?</label>
                     <textarea name="participation" required placeholder="Décrivez votre intérêt et comment vous pourriez contribuer..."></textarea>
                 </div>
+                <div class="form-group">
+                    <label>Consentement</label>
+                    <input type="checkbox" name="consentement" required> J'accepte que mes données soient utilisées pour me répondre.
+                </div>
+                <div class="form-group">
+                    <label>Date d'inscription</label>
+                    <input type="date" name="date_inscription" required>
+                </div>
                 <button type="submit" class="btn btn-primary" style="width: 100%;">Valider mon adhésion</button>
             </form>
         </div>
@@ -665,6 +763,14 @@
                 <div class="form-group">
                     <label>Message</label>
                     <textarea name="message" required placeholder="Votre message..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Consentement</label>
+                    <input type="checkbox" name="consentement" required> J'accepte que mes données soient utilisées pour me répondre.
+                </div>
+                <div class="form-group">
+                    <label>Date du message</label>
+                    <input type="date" name="date_contact" required>
                 </div>
                 <button type="submit" class="btn btn-primary" style="width: 100%;">Envoyer le message</button>
             </form>
