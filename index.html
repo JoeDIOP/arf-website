@@ -2445,12 +2445,14 @@
                                     <label for="participation">Dans quel(s) domaine(s) souhaitez-vous contribuer ?</label>
                                     <select id="participation" name="participation" required>
                                         <option value="">-- Sélectionnez --</option>
-                                        <option value="Développement économique">Développement économique</option>
-                                        <option value="Éducation & Formation">Éducation & Formation</option>
-                                        <option value="Santé & Bien-être">Santé & Bien-être</option>
-                                        <option value="Environnement & Durabilité">Environnement & Durabilité</option>
                                         <option value="Cohésion Sociale">Cohésion Sociale</option>
-                                        <option value="Communication & Médias">Communication & Médias</option>
+                                        <option value="Administration et Gouvernance">Administration et Gouvernance</option>
+                                        <option value="Communication">Communication</option>
+                                        <option value="Entrepreneuriat et Emploi">Entrepreneuriat et Emploi</option>
+                                        <option value="Éducation et Formation">Éducation et Formation</option>
+                                        <option value="Santé et Bien-être">Santé et Bien-être</option>
+                                        <option value="Environnement et Durabilité">Environnement et Durabilité</option>
+                                        <option value="Solidarité et Inclusion">Solidarité et Inclusion</option>
                                         <option value="Autre">Autre</option>
                                     </select>
                                 </div>
@@ -2643,7 +2645,7 @@
         }
 
         // ========================================
-        // FORMULAIRE D'ADHÉSION - CORRIGÉ
+        // FORMULAIRE D'ADHÉSION - VERSION JSON
         // ========================================
         const adhesionForm = document.getElementById('adhesionForm');
 
@@ -2651,47 +2653,68 @@
             adhesionForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 
-                // Ajouter la date d'inscription automatiquement
-                const dateInscription = new Date().toLocaleDateString('fr-FR');
-                document.getElementById('dateinscription').value = dateInscription;
+                // Récupérer le bouton avant toute opération
+                const submitBtn = adhesionForm.querySelector('button[type="submit"]');
+                const originalText = submitBtn ? submitBtn.textContent : '';
                 
-                // Préparer les données du formulaire
-                const formData = new FormData(adhesionForm);
-                
-                // URL du Google Apps Script mise à jour
-                const scriptURL = 'https://script.google.com/macros/s/AKfycby9J9MkCNE0K2Drrl7RgKiAnsT3GuxK0RuvU4_XeuZ1nRntDDKW-EzGKfSzRKVZBQ0F/exec';
+                if (submitBtn) {
+                    submitBtn.disabled = true;
+                    submitBtn.textContent = '⏳ Envoi en cours...';
+                }
                 
                 try {
-                    // Afficher un message de chargement
-                    const submitBtn = adhesionForm.querySelector('button[type="submit"]');
-                    const originalText = submitBtn.textContent;
-                    submitBtn.textContent = '⏳ Envoi en cours...';
-                    submitBtn.disabled = true;
+                    // Ajouter la date d'inscription automatiquement
+                    const dateInscription = new Date().toLocaleDateString('fr-FR');
                     
-                    // Envoyer les données
+                    // Récupération des champs du formulaire
+                    const formData = new FormData(adhesionForm);
+                    
+                    // Créer un objet JSON pour l'envoi
+                    const payload = {
+                        nom_et_prenom: formData.get('nometprenom') || '',
+                        email: formData.get('email') || '',
+                        telephone: formData.get('telephone') || '',
+                        'village/quartier': formData.get('villagequartier') || '',
+                        participation: formData.get('participation') || '',
+                        motivations: formData.get('motivations') || '',
+                        dateinscription: dateInscription
+                    };
+                    
+                    // URL du Google Apps Script
+                    const scriptURL = 'https://script.google.com/macros/s/AKfycby9J9MkCNE0K2Drrl7RgKiAnsT3GuxK0RuvU4_XeuZ1nRntDDKW-EzGKfSzRKVZBQ0F/exec';
+                    
+                    // Envoyer les données en JSON
                     const response = await fetch(scriptURL, {
                         method: 'POST',
-                        body: formData
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(payload)
                     });
                     
-                    // Restaurer le bouton
-                    submitBtn.textContent = originalText;
-                    submitBtn.disabled = false;
+                    if (!response.ok) {
+                        throw new Error('Erreur réseau: ' + response.status);
+                    }
                     
-                    if (response.ok) {
-                        alert('✅ Merci ! Votre adhésion a bien été enregistrée.\n\nNous vous contacterons prochainement.');
+                    // Vérifier la réponse du serveur
+                    const result = await response.json();
+                    
+                    if (result.ok !== false) {
+                        alert('✅ Merci ! Votre adhésion a bien été enregistrée.\n\nVous recevrez un email de confirmation sous peu.');
                         adhesionForm.reset();
                     } else {
-                        throw new Error('Erreur de réponse du serveur');
+                        throw new Error(result.error || 'Erreur lors de l\'enregistrement');
                     }
+                    
                 } catch (error) {
                     console.error('Erreur:', error);
-                    alert('❌ Une erreur est survenue lors de l\'envoi.\n\nVeuillez réessayer ou nous contacter directement par email.');
-                    
-                    // Restaurer le bouton en cas d'erreur
-                    const submitBtn = adhesionForm.querySelector('button[type="submit"]');
-                    submitBtn.textContent = '✅ Envoyer ma candidature';
-                    submitBtn.disabled = false;
+                    alert('❌ Une erreur est survenue lors de l\'envoi.\n\nVeuillez réessayer ou nous contacter directement par email : contact@arf-fandene.org');
+                } finally {
+                    // Restaurer le bouton dans tous les cas
+                    if (submitBtn) {
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = originalText || '✅ Envoyer ma candidature';
+                    }
                 }
             });
         }
