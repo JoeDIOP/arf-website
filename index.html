@@ -13,13 +13,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="Logo_ARF_V1.jpg" sizes="32x32">
-    <link rel="apple-touch-icon" href="Logo_ARF_V1.jpg">
-
+    <link rel="icon" type="image/png" href="LogoARFV1.jpg" sizes="32x32">
+    <link rel="apple-touch-icon" href="LogoARFV1.jpg">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
     <style>
-        /* RESET & BASE STYLES */
+        /* ========================================
+           RESET & BASE STYLES
+        ======================================== */
         :root {
             --primary-color: #1ABC4C; /* Vert principal */
             --secondary-color: #564144; /* Marron foncé */
@@ -31,8 +31,16 @@
             --shadow: rgba(0, 0, 0, 0.1);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
             line-height: 1.6;
@@ -40,9 +48,16 @@
             background-color: var(--white);
             overflow-x: hidden;
         }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-        /* BUTTONS */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ========================================
+           BUTTONS
+        ======================================== */
         .btn {
             display: inline-block;
             padding: 12px 28px;
@@ -54,18 +69,61 @@
             font-size: 16px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
-        .btn-primary { background: var(--primary-color); color: var(--white); border: none; }
-        .btn-primary:hover { background: var(--accent-color); transform: translateY(-3px); box-shadow: 0 8px 20px rgba(26, 188, 76, 0.3); }
-        .btn-secondary { background: transparent; color: var(--primary-color); border: 2px solid var(--primary-color); }
-        .btn-secondary:hover { background: var(--primary-color); color: var(--white); }
-        .back-button { margin-bottom: 40px; display: inline-block; }
 
-        /* PAGE VISIBILITY */
-        .page { display: none; animation: fadeIn 0.5s ease forwards; }
-        .page.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .btn-primary {
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+        }
 
-        /* NAVBAR */
+        .btn-primary:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(26, 188, 76, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .back-button {
+            margin-bottom: 40px;
+            display: inline-block;
+        }
+
+        /* ========================================
+           PAGE VISIBILITY
+        ======================================== */
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ========================================
+           NAVBAR
+        ======================================== */
         .navbar {
             position: sticky;
             top: 0;
@@ -75,7 +133,8 @@
             z-index: 1000;
             transition: background 0.3s ease;
         }
-        /* NAVBAR – LOGO COLLÉ À GAUCHE */
+
+        /* NAVBAR - LOGO COLLÉ À GAUCHE */
         .nav-container {
             display: flex;
             justify-content: space-between;
@@ -88,20 +147,21 @@
         /* Wrapper pour forcer le logo tout à gauche */
         .nav-logo-wrapper {
             margin-right: auto; /* pousse tout le reste vers la droite */
-            
         }
 
         .nav-right {
-            margin-left: auto;              /* force l'alignement complet à droite */
+            margin-left: auto; /* force l'alignement complet à droite */
             display: flex;
             align-items: center;
             gap: 20px;
         }
+
         .nav-center {
             display: flex;
             justify-content: center;
             flex: 1;
         }
+
         .nav-logo {
             display: flex;
             align-items: center;
@@ -128,28 +188,36 @@
             transform: scale(1.08);
             cursor: pointer;
         }
+
         .logo-text {
             font-weight: 700;
             letter-spacing: 0.5px;
             font-size: 1.2em;
         }
 
-        /* Sur mobile : tout reste aligné proprement */
+        /* Sur mobile, tout reste aligné proprement */
         @media (max-width: 900px) {
             .nav-logo-wrapper {
                 margin-right: 0;
             }
+            
             .nav-container {
                 padding: 12px 15px;
             }
+            
             .nav-center {
                 order: 3;
                 width: 100%;
                 justify-content: center;
             }
         }
-        
-        .nav-menu { display: flex; list-style: none; gap: 30px; }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
         .nav-link {
             color: var(--white);
             text-decoration: none;
@@ -158,6 +226,7 @@
             transition: all 0.3s ease;
             cursor: pointer;
         }
+
         .nav-link::after {
             content: '';
             position: absolute;
@@ -168,15 +237,25 @@
             background: var(--white);
             transition: width 0.3s ease;
         }
-        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
-        .nav-toggle { display: none; font-size: 1.5em; color: var(--white); cursor: pointer; }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .nav-toggle {
+            display: none;
+            font-size: 1.5em;
+            color: var(--white);
+            cursor: pointer;
+        }
 
         /* Search Bar */
         .search-container {
             display: flex;
             align-items: center;
             background: rgba(255, 255, 255, 0.15);
-            padding: 8px 12px;           /* Padding réduit pour un look plus compact */
+            padding: 8px 12px; /* Padding réduit pour un look plus compact */
             border-radius: 30px;
             min-width: auto;
             transition: all 0.3s ease;
@@ -192,7 +271,9 @@
             outline: none;
         }
 
-        .search-input::placeholder { color: rgba(255, 255, 255, 0.7); }
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
 
         .search-btn {
             background: rgba(255, 255, 255, 0.3);
@@ -209,30 +290,31 @@
             background: rgba(255, 255, 255, 0.5);
         }
 
-        /* Sur mobile : icône encore plus petite et propre */
+        /* Sur mobile, icône encore plus petite et propre */
         @media (max-width: 480px) {
             .search-icon {
-                font-size: 1.3em;        /* Légèrement plus grande seule pour rester visible */
+                font-size: 1.3em; /* Légèrement plus grande seule pour rester visible */
             }
+            
             .search-container {
                 background: none;
                 padding: 0;
             }
         }
 
-        /* HERO SECTION */
-        /* HERO SECTION – PARFAITEMENT CENTRÉE */
+        /* ========================================
+           HERO SECTION - PARFAITEMENT CENTRÉ
+        ======================================== */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), 
-                        url('fandene.jpg') center/cover no-repeat fixed;
+            background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('fandene.jpg') center/cover no-repeat fixed;
             color: var(--white);
-            min-height: 90vh;                    /* Occupera presque tout l’écran */
+            min-height: 90vh; /* Occupera presque tout l'écran */
             display: flex;
             flex-direction: column;
-            justify-content: center;             /* Centrage vertical */
-            align-items: center;                 /* Centrage horizontal */
-            text-align: center;                  /* Texte centré */
-            padding: 0 20px;                     /* Marge latérale sur mobile */
+            justify-content: center; /* Centrage vertical */
+            align-items: center; /* Centrage horizontal */
+            text-align: center; /* Texte centré */
+            padding: 0 20px; /* Marge latérale sur mobile */
             position: relative;
         }
 
@@ -253,21 +335,29 @@
 
         .hero-buttons {
             display: flex;
-            flex-wrap: wrap;                     /* Passe à la ligne sur très petit écran */
+            flex-wrap: wrap; /* Passe à la ligne sur très petit écran */
             gap: 20px;
             justify-content: center;
         }
 
-        /* Optionnel : animation d’apparition douce */
-        .hero * {
+        /* Optionnel : animation d'apparition douce */
+        .hero {
             opacity: 0;
             transform: translateY(30px);
             animation: fadeUp 0.8s ease forwards;
         }
 
-        .hero-title   { animation-delay: 0.2s; }
-        .hero-subtitle{ animation-delay: 0.4s; }
-        .hero-buttons { animation-delay: 0.6s; }
+        .hero-title {
+            animation-delay: 0.2s;
+        }
+
+        .hero-subtitle {
+            animation-delay: 0.4s;
+        }
+
+        .hero-buttons {
+            animation-delay: 0.6s;
+        }
 
         @keyframes fadeUp {
             to {
@@ -282,18 +372,25 @@
                 min-height: 80vh;
                 padding: 0 15px;
             }
+            
             .hero-buttons {
                 flex-direction: column;
                 align-items: center;
             }
+            
             .btn {
                 width: 100%;
                 max-width: 300px;
             }
         }
 
-        /* SECTIONS */
-        .section { padding: 100px 20px; }
+        /* ========================================
+           SECTIONS
+        ======================================== */
+        .section {
+            padding: 100px 20px;
+        }
+
         .section-title {
             text-align: center;
             font-size: 2.5em;
@@ -301,8 +398,9 @@
             margin-bottom: 60px;
             position: relative;
         }
+
         .section-title::after {
-            content: "";
+            content: '';
             display: block;
             width: 100px;
             height: 4px;
@@ -311,7 +409,9 @@
             border-radius: 2px;
         }
 
-        /* GALERIE PHOTOS – STYLE MODERNE */
+        /* ========================================
+           GALERIE PHOTOS - STYLE MODERNE
+        ======================================== */
         .gallery-section {
             background: var(--light-bg);
             padding: 100px 20px;
@@ -408,7 +508,9 @@
             opacity: 1;
         }
 
-        /* SECTION VIDÉOS - 3 COLONNES HARMONISÉE */
+        /* ========================================
+           SECTION VIDÉOS - 3 COLONNES HARMONISÉE
+        ======================================== */
         .row {
             display: flex;
             flex-wrap: wrap;
@@ -451,10 +553,10 @@
             .video-section {
                 grid-template-columns: 1fr; /* 1 colonne sur mobile */
             }
-        }
-
-        .gallery-grid {
+            
+            .gallery-grid {
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
         }
 
         @media (max-width: 480px) {
@@ -467,7 +569,9 @@
             }
         }
 
-        /* LIGHTBOX */
+        /* ========================================
+           LIGHTBOX
+        ======================================== */
         .gallery-lightbox {
             display: none;
             position: fixed;
@@ -507,10 +611,12 @@
         }
 
         .lightbox-close:hover {
-            color: var(--primary);
+            color: var(--primary-color);
         }
 
-        /* EVENTS SECTION */
+        /* ========================================
+           EVENTS SECTION
+        ======================================== */
         .events-section {
             width: 100vw;
             margin-left: calc(-50vw + 50%);
@@ -547,7 +653,7 @@
         }
 
         .event-date {
-            background: linear-gradient(135deg, var(--primary-color),#0d7c32);
+            background: linear-gradient(135deg, var(--primary-color), #0d7c32);
             color: white;
             padding: 10px 15px;
             border-radius: 5px;
@@ -572,7 +678,7 @@
         }
 
         .event-location::before {
-            content: "📍 ";
+            content: '📍';
             margin-right: 5px;
         }
 
@@ -582,9 +688,20 @@
             font-size: 0.95em;
         }
 
-        /* ===== VALUES SECTION ===== */
-        .values { background: var(--white); padding: 80px 20px; }
-        .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        /* ========================================
+           VALUES SECTION
+        ======================================== */
+        .values {
+            background: var(--white);
+            padding: 80px 20px;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
         .value-item {
             text-align: center;
             padding: 40px;
@@ -592,10 +709,21 @@
             border-radius: 15px;
             transition: all 0.3s ease;
         }
-        .value-item:hover { box-shadow: 0 12px 30px rgba(26, 188, 76, 0.2); transform: scale(1.05); }
-        .value-icon { font-size: 4em; color: var(--primary-color); margin-bottom: 20px; }
 
-        /* ===== STRATEGIC AXES SECTION ===== */
+        .value-item:hover {
+            box-shadow: 0 12px 30px rgba(26, 188, 76, 0.2);
+            transform: scale(1.05);
+        }
+
+        .value-icon {
+            font-size: 4em;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        /* ========================================
+           STRATEGIC AXES SECTION
+        ======================================== */
         .axes-section {
             background: #f8f9fa;
         }
@@ -633,7 +761,9 @@
             line-height: 1.6;
         }
 
-        /* ===== AXES – PAGES DÉTAIL ===== */
+        /* ========================================
+           AXES PAGES DÉTAIL
+        ======================================== */
         .axis-detail {
             max-width: 900px;
             margin: 0 auto;
@@ -661,7 +791,7 @@
             line-height: 1.8;
         }
 
-        /* ===== BOUTON RETOUR ===== */
+        /* BOUTON RETOUR */
         .back-button {
             margin-bottom: 40px;
             background: transparent;
@@ -676,7 +806,9 @@
             text-decoration: underline;
         }
 
-        /* ===== FEUILLE DE ROUTE ===== */
+        /* ========================================
+           FEUILLE DE ROUTE
+        ======================================== */
         .roadmap {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -701,7 +833,7 @@
         .roadmap-step span {
             display: inline-block;
             font-weight: 600;
-            color: #fff !important; 
+            color: #fff !important;
             background: var(--primary-color);
             padding: 6px 14px;
             border-radius: 20px;
@@ -720,7 +852,9 @@
             line-height: 1.6;
         }
 
-        /* ===== PILOTAGE STRATÉGIQUE ===== */
+        /* ========================================
+           PILOTAGE STRATÉGIQUE
+        ======================================== */
         .pilotage-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -743,7 +877,7 @@
         }
 
         .pilotage-card::before {
-            content: "";
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
@@ -752,9 +886,17 @@
             border-radius: 16px 16px 0 0;
         }
 
-        .pilotage-card.objectifs::before { background: #1ABC4C; }
-        .pilotage-card.actions::before { background: #564144; }
-        .pilotage-card.indicateurs::before { background: #0d7c32; }
+        .pilotage-card.objectifs::before {
+            background: #1ABC4C;
+        }
+
+        .pilotage-card.actions::before {
+            background: #564144;
+        }
+
+        .pilotage-card.indicateurs::before {
+            background: #0d7c32;
+        }
 
         .pilotage-card h3 {
             margin-bottom: 20px;
@@ -774,7 +916,9 @@
             font-size: 26px;
         }
 
-        /* ===== PARTICIPATE SECTION ===== */
+        /* ========================================
+           PARTICIPATE SECTION
+        ======================================== */
         .participate {
             padding: 80px 20px;
             background: #f8f9fa;
@@ -821,7 +965,9 @@
             margin-bottom: 10px;
         }
 
-        /* Publications Page */
+        /* ========================================
+           Publications Page
+        ======================================== */
         .publications-section {
             padding: 50px 40px;
         }
@@ -947,7 +1093,8 @@
             justify-content: space-between;
         }
 
-        .btn-download, .btn-view {
+        .btn-download,
+        .btn-view {
             flex: 1;
             padding: 10px 15px;
             border: none;
@@ -1061,7 +1208,8 @@
                 flex-direction: column;
             }
 
-            .btn-download, .btn-view {
+            .btn-download,
+            .btn-view {
                 width: 100%;
             }
 
@@ -1097,7 +1245,9 @@
             }
         }
 
-        /* ===== COULEURS PAR AXE ===== */
+        /* ========================================
+           COULEURS PAR AXE
+        ======================================== */
         :root {
             --axe-economie: #1ABC4C;
             --axe-education: #1E88E5;
@@ -1147,40 +1297,111 @@
             background-color: var(--axe-cohesion);
         }
 
-        /* Séparation : couleur de texte seule pour titres */
-        .axe-economie h2, .axe-economie h3,
-        .axe-education h2, .axe-education h3,
-        .axe-sante h2, .axe-sante h3,
-        .axe-environnement h2, .axe-environnement h3,
-        .axe-cohesion h2, .axe-cohesion h3 {
+        /* Séparation couleur de texte seule pour titres */
+        .axe-economie h2,
+        .axe-economie h3,
+        .axe-education h2,
+        .axe-education h3,
+        .axe-sante h2,
+        .axe-sante h3,
+        .axe-environnement h2,
+        .axe-environnement h3,
+        .axe-cohesion h2,
+        .axe-cohesion h3 {
             background: none;
         }
 
-        /* FORMS SECTION */
-        .adhesion-form { max-width: 600px; margin: 0 auto; }
-        .form-group { margin-bottom: 20px; }
+        /* ========================================
+           FORMS SECTION
+        ======================================== */
+        .adhesion-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
         .form-card h3 {
             color: #1ABC4C;
             margin-bottom: 25px;
             font-size: 22px;
         }
-        .form-group label { display: block; margin-bottom: 5px; font-weight: 600; }
-        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 1em; }
 
-        /* FOOTER */
-        .footer { background: var(--secondary-color); color: var(--white); padding: 30px 10px; }
-        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; }
-        .footer-section h4 { margin-bottom: 0px; font-size: 1.2em; }
-        .footer-section ul { list-style: none; }
-        .footer-section li { margin-bottom: 0px; }
-        .social-links { display: flex; gap: 15px; }
-        .social-icon { color: var(--white); font-size: 1.5em; transition: color 0.3s; }
-        .social-icon:hover { color: var(--primary-color); }
-        .footer-bottom { text-align: center; margin-top: 0px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; }
-        
-        .hamburger { display: none; }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
 
-        /* RESPONSIVE */
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+        }
+
+        /* ========================================
+           FOOTER
+        ======================================== */
+        .footer {
+            background: var(--secondary-color);
+            color: var(--white);
+            padding: 30px 10px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 0px;
+            font-size: 1.2em;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 0px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icon {
+            color: var(--white);
+            font-size: 1.5em;
+            transition: color 0.3s;
+        }
+
+        .social-icon:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 0px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+        }
+
+        .hamburger {
+            display: none;
+        }
+
+        /* ========================================
+           RESPONSIVE
+        ======================================== */
         @media (max-width: 1024px) {
             .search-container {
                 min-width: 150px;
@@ -1188,81 +1409,103 @@
         }
 
         @media (max-width: 900px) {
-            .nav-center { 
-                order: 3; 
-                width: 100%; 
-                justify-content: center; 
-                display: none; 
+            .nav-center {
+                order: 3;
+                width: 100%;
+                justify-content: center;
+                display: none;
             }
-            .nav-menu { 
-                flex-direction: column; 
-                width: 100%; 
-                padding: 20px 0; 
-                background: rgba(0,0,0,0.2); 
+
+            .nav-menu {
+                flex-direction: column;
+                width: 100%;
+                padding: 20px 0;
+                background: rgba(0,0,0,0.2);
             }
-            .nav-menu.active { display: flex; }
+
+            .nav-menu.active {
+                display: flex;
+            }
 
             .search-container {
                 min-width: auto;
             }
-            .search-input { width: 120px; }
 
-            .nav-toggle { display: block; }
+            .search-input {
+                width: 120px;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
         }
 
         @media (max-width: 480px) {
-            .search-input { display: none; } /* Garde seulement l'icône loupe sur très petit écran */
+            .search-input {
+                display: none; /* Garde seulement l'icône loupe sur très petit écran */
+            }
+
             .search-container {
                 background: none;
                 padding: 0;
             }
-            .search-icon { font-size: 1.4em; }
+
+            .search-icon {
+                font-size: 1.4em;
+            }
         }
 
-        .axe-economie .btn-primary { background: var(--axe-economie); }
-        .axe-education .btn-primary { background: var(--axe-education); }
-        .axe-sante .btn-primary { background: var(--axe-sante); }
-        .axe-environnement .btn-primary { background: var(--axe-environnement); }
-        .axe-cohesion .btn-primary { background: var(--axe-cohesion); }
+        .axe-economie .btn-primary {
+            background: var(--axe-economie);
+        }
+
+        .axe-education .btn-primary {
+            background: var(--axe-education);
+        }
+
+        .axe-sante .btn-primary {
+            background: var(--axe-sante);
+        }
+
+        .axe-environnement .btn-primary {
+            background: var(--axe-environnement);
+        }
+
+        .axe-cohesion .btn-primary {
+            background: var(--axe-cohesion);
+        }
     </style>
 </head>
 <body>
-
     <!-- NAVBAR -->
     <nav class="navbar">
         <div class="nav-container container">
             <div class="nav-logo-wrapper">
                 <a href="#" class="nav-logo" onclick="showPage('accueil')">
-                    <img 
-                        src="Logo_ARF_V1.jpg" 
-                        alt="Logo Alliance pour le Renouveau de Fandène" 
-                        class="logo"
-                        width="60" 
-                        height="60"
-                        loading="eager"           <!-- important pour le logo en haut de page -->
-                    >
+                    <img src="LogoARFV1.jpg" alt="Logo Alliance pour le Renouveau de Fandène" class="logo" width="60" height="60" loading="eager"> <!-- important pour le logo en haut de page -->
                 </a>
             </div>
-            
-            <!-- MENU CENTRÉ (sur desktop) -->
+
+            <!-- MENU CENTRÉ sur desktop -->
             <div class="nav-center">
                 <ul class="nav-menu">
                     <li><a class="nav-link active" onclick="showPage('accueil')">Accueil</a></li>
                     <li><a class="nav-link" onclick="showPage('lemouvement')">Le Mouvement</a></li>
                     <li><a class="nav-link" onclick="showPage('valeurs')">Valeurs</a></li>
                     <li><a class="nav-link" onclick="showPage('axes')">Axes Stratégiques</a></li>
-                    <li><a class="nav-link" onclick="showPage('evenements')">Événements</a></li>
+                    <li><a class="nav-link" onclick="showPage('evenements')">Évènements</a></li>
                     <li><a class="nav-link" onclick="showPage('publications')">Publications</a></li>
                     <li><a class="nav-link" onclick="showPage('rejoindre')">J'adhère</a></li>
                 </ul>
             </div>
 
-            <!-- ÉLÉMENTS À DROITE (recherche + hamburger) -->
+            <!-- ÉLÉMENTS À DROITE : recherche + hamburger -->
             <div class="nav-right">
                 <div class="search-container">
                     <input type="text" class="search-input" id="searchInput" placeholder="Chercher...">
-                    <button class="search-btn" onclick="performSearch()">🔍</button>
+                    <button class="search-btn" onclick="performSearch()"><i class="fas fa-search search-icon"></i></button>
                 </div>
+                <i class="fas fa-bars nav-toggle hamburger" onclick="toggleMenu()"></i>
             </div>
         </div>
     </nav>
@@ -1272,18 +1515,18 @@
         <!-- PAGE ACCUEIL -->
         <div id="accueil" class="page active">
             <section class="hero">
-                    <h1 class="hero-title">Alliance pour le Renouveau de Fandène</h1>
-                    <p class="hero-subtitle">Un mouvement citoyen pour transformer notre localité</p>
-                    <div class="hero-buttons">
-                        <a href="#" class="btn btn-primary" onclick="showPage('rejoindre')">Adhérer maintenant</a>
-                        <a href="#" class="btn btn-secondary" onclick="showPage('lemouvement')">En savoir plus</a>
-                    </div>
+                <h1 class="hero-title">Alliance pour le Renouveau de Fandène</h1>
+                <p class="hero-subtitle">Un mouvement citoyen pour transformer notre localité</p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn btn-primary" onclick="showPage('rejoindre')">Adhérer maintenant</a>
+                    <a href="#" class="btn btn-secondary" onclick="showPage('lemouvement')">En savoir plus</a>
+                </div>
             </section>
 
-            <!-- GALERIE PHOTOS – REMPLACE L'ANCIENNE SECTION "À PROPOS" -->
+            <!-- GALERIE PHOTOS - REMPLACE L'ANCIENNE SECTION "À PROPOS" -->
             <section class="section gallery-section" id="gallery">
                 <div class="container">
-                    <h2 class="section-title mt-5 pt-5">Galerie Photos et Vidéos ARF</h2>
+                    <h2 class="section-title mt-5 pt-5">🎯 Galerie Photos et Vidéos ARF</h2>
                     <p class="gallery-intro" style="text-align: center; max-width: 800px; margin: 0 auto 50px; font-size: 1.1em; color: var(--text-light);">
                         Revivez les moments forts de l'Alliance pour le Renouveau de Fandène : mobilisations, actions citoyennes, rencontres communautaires et projets concrets sur le terrain.
                     </p>
@@ -1292,7 +1535,7 @@
                     <div class="gallery-grid">
                         <!-- Photo 1 -->
                         <div class="gallery-item" onclick="openLightbox(this)">
-                            <img src="Photo_1.jpg" alt="Pose première pierre" loading="lazy">
+                            <img src="Photo1.jpg" alt="Pose première pierre" loading="lazy">
                             <div class="gallery-overlay">
                                 <p class="gallery-caption">Pose première pierre</p>
                             </div>
@@ -1300,7 +1543,7 @@
 
                         <!-- Photo 2 -->
                         <div class="gallery-item" onclick="openLightbox(this)">
-                            <img src="Photo_2.jpg" alt="Pose première pierre" loading="lazy">
+                            <img src="Photo2.jpg" alt="Pose première pierre" loading="lazy">
                             <div class="gallery-overlay">
                                 <p class="gallery-caption">Pose première pierre</p>
                             </div>
@@ -1308,7 +1551,7 @@
 
                         <!-- Photo 3 -->
                         <div class="gallery-item" onclick="openLightbox(this)">
-                            <img src="Photo_3.jpg" alt="Pose première pierre" loading="lazy">
+                            <img src="Photo3.jpg" alt="Pose première pierre" loading="lazy">
                             <div class="gallery-overlay">
                                 <p class="gallery-caption">Pose première pierre</p>
                             </div>
@@ -1316,7 +1559,7 @@
 
                         <!-- Photo 4 -->
                         <div class="gallery-item" onclick="openLightbox(this)">
-                            <img src="Photo_4.jpg" alt="Pose première pierre" loading="lazy">
+                            <img src="Photo4.jpg" alt="Pose première pierre" loading="lazy">
                             <div class="gallery-overlay">
                                 <p class="gallery-caption">Pose première pierre</p>
                             </div>
@@ -1340,41 +1583,48 @@
                     </div>
 
                     <!-- Section Vidéos - 3 colonnes en largeur -->
-                        <div class="video-section">
-                            <div class="gallery-item gallery-video" onclick="openLightbox(this)">
-                                <video src="Video_1.mp4" loading="lazy"></video>
-                                <div class="video-play-icon">
-                                    <i class="fas fa-play-circle"></i>
-                                </div>
-                                <div class="gallery-overlay">
-                                    <p class="gallery-caption">Vidéo 1</p>
-                                </div>
+                    <div class="video-section">
+                        <div class="gallery-item gallery-video" onclick="openLightbox(this)">
+                            <video src="Video1.mp4" loading="lazy"></video>
+                            <div class="video-play-icon">
+                                <i class="fas fa-play-circle"></i>
                             </div>
-
-                            <div class="gallery-item gallery-video" onclick="openLightbox(this)">
-                                <video src="Video_2.mp4" loading="lazy"></video>
-                                <div class="video-play-icon">
-                                    <i class="fas fa-play-circle"></i>
-                                </div>
-                                <div class="gallery-overlay">
-                                    <p class="gallery-caption">Vidéo 2</p>
-                                </div>
-                            </div>
-
-                            <div class="gallery-item gallery-video" onclick="openLightbox(this)">
-                                <video src="Video_3.mp4" loading="lazy"></video>
-                                <div class="video-play-icon">
-                                    <i class="fas fa-play-circle"></i>
-                                </div>
-                                <div class="gallery-overlay">
-                                    <p class="gallery-caption">Vidéo 3</p>
-                                </div>
+                            <div class="gallery-overlay">
+                                <p class="gallery-caption">Vidéo 1</p>
                             </div>
                         </div>
+
+                        <div class="gallery-item gallery-video" onclick="openLightbox(this)">
+                            <video src="Video2.mp4" loading="lazy"></video>
+                            <div class="video-play-icon">
+                                <i class="fas fa-play-circle"></i>
+                            </div>
+                            <div class="gallery-overlay">
+                                <p class="gallery-caption">Vidéo 2</p>
+                            </div>
+                        </div>
+
+                        <div class="gallery-item gallery-video" onclick="openLightbox(this)">
+                            <video src="Video3.mp4" loading="lazy"></video>
+                            <div class="video-play-icon">
+                                <i class="fas fa-play-circle"></i>
+                            </div>
+                            <div class="gallery-overlay">
+                                <p class="gallery-caption">Vidéo 3</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
+
+            <!-- Lightbox (overlay fullscreen) -->
+            <div class="gallery-lightbox" id="lightbox" onclick="closeLightbox()">
+                <button class="lightbox-close" aria-label="Fermer">&times;</button>
+                <img src="" alt="Image en grand" id="lightboxImage">
+            </div>
         </div>
 
-            <!-- ÉVÉNEMENTS -->
+        <!-- ÉVÈNEMENTS -->
         <div id="evenements" class="page">
             <section class="section events-section">
                 <div class="events-section">
@@ -1393,7 +1643,7 @@
                         <!-- Event 2 -->
                         <div class="event-card">
                             <div class="event-date">22 Janvier 2026</div>
-                            <div class="event-title">Atelier Développement Économique</div>
+                            <div class="event-title">Atelier Développement économique</div>
                             <div class="event-location">Mairie de Fandène</div>
                             <div class="event-description">
                                 Atelier de formation sur l'entrepreneuriat local et la création de petites entreprises. Les porteurs de projets présenteront leurs initiatives et recevront des conseils d'experts.
@@ -1416,112 +1666,100 @@
 
         <!-- PAGE LE MOUVEMENT -->
         <div id="lemouvement" class="page">
-             <section class="section">
+            <section class="section">
                 <div class="container">
                     <h2 class="section-title">Qui sommes-nous ?</h2>
+
                     <div class="about-content">
                         <div class="about-text">
-                            <p><FONT size="5pt" color="blue"><strong>Notre identité</FONT><br /></strong>
-                            <strong>L’Alliance pour le Renouveau de Fandène (ARF)</strong>
-                            est un mouvement citoyen militant qui incarne l'espoir et l'ambition collective d'une Commune résolue à retrouver sa grandeur. Né de la volonté partagée de promouvoir un développement durable et profondément inclusif, l'ARF rassemble les forces vives de notre territoire : acteurs locaux engagés, jeunesse dynamique, femmes leaders, autorités communautaires et sympathisants déterminés à œuvrer pour la transformation socio-économique de Fandène.
-                            Notre conviction est simple mais puissante : le développement authentique s'ancre d'abord dans les réalités locales avant de rayonner au niveau national. C'est cette philosophie qui guide chacune de nos actions.</p>
-                            <p><FONT size="5pt" color="red"><strong>Le diagnostic : Fandène à la croisée des chemins</FONT><br /></strong>
-                            <strong>Fandène</strong>, fut longtemps synonyme de dynamisme, de prospérité et de vitalité communautaire. Aujourd'hui, notre Commune fait face à des défis structurels qui menacent cet héritage et compromettent l'avenir de nos enfants. Face à cette réalité, l'immobilisme n'est plus une option.
-                            L'ARF se lève avec détermination pour inverser cette tendance, revitaliser notre territoire et redonner à Fandène la place qu'elle mérite parmi les communes modèles du Sénégal.<br />
-                            L'Alliance pour le Renouveau de Fandène aspire à construire un avenir où chaque habitant, quelle que soit sa condition, trouve sa place et contribue au rayonnement collectif. Un avenir où tradition et modernité se conjuguent harmonieusement, où les opportunités se multiplient, et où la prospérité se partage.<br />
-                            En misant sur l'union des forces vives, le développement solidaire et le respect de notre identité commune, nous voulons léguer aux générations futures une Commune revitalisée, fière de son passé et confiante en son avenir.<br />
-                            Cette approche holistique vise à renforcer la cohésion sociale, à créer des opportunités concrètes pour tous, et à améliorer significativement la qualité de vie des habitants à travers des initiatives participatives, innovantes et mesurables.<br />
-                            Le renouveau de Fandène ne sera pas l'œuvre d'une seule personne, mais celle de tous. L'ARF vous invite à prendre part à cette aventure collective, à apporter vos compétences, votre énergie et vos idées pour transformer ensemble notre Commune.<br />
-                            Parce que Fandène mérite mieux. Parce que l'avenir se construit aujourd'hui, <FONT color="green"><strong>Rejoignez le mouvement !</strong></FONT>
-                            </p>
+                            <p><FONT size="5pt" color="blue"><strong>Notre identité</FONT><br></strong>
+                            <strong>L'Alliance pour le Renouveau de Fandène (ARF)</strong> est un mouvement citoyen militant qui incarne l'espoir et l'ambition collective d'une Commune résolue à retrouver sa grandeur. Né de la volonté partagée de promouvoir un développement durable et profondément inclusif, l'ARF rassemble les forces vives de notre territoire : acteurs locaux engagés, jeunesse dynamique, femmes leaders, autorités communautaires et sympathisants déterminés à œuvrer pour la transformation socio-économique de Fandène. Notre conviction est simple mais puissante : le développement authentique s'ancre d'abord dans les réalités locales avant de rayonner au niveau national. C'est cette philosophie qui guide chacune de nos actions.</p>
+
+                            <p><FONT size="5pt" color="red"><strong>Le diagnostic : Fandène à la croisée des chemins</FONT><br></strong>
+                            <strong>Fandène</strong>, fut longtemps synonyme de dynamisme, de prospérité et de vitalité communautaire. Aujourd'hui, notre Commune fait face à des défis structurels qui menacent cet héritage et compromettent l'avenir de nos enfants. Face à cette réalité, l'immobilisme n'est plus une option. L'ARF se lève avec détermination pour inverser cette tendance, revitaliser notre territoire et redonner à Fandène la place qu'elle mérite parmi les communes modèles du Sénégal.<br>
+                            L'Alliance pour le Renouveau de Fandène aspire à construire un avenir où chaque habitant, quelle que soit sa condition, trouve sa place et contribue au rayonnement collectif. Un avenir où tradition et modernité se conjuguent harmonieusement, où les opportunités se multiplient, et où la prospérité se partage.<br>
+                            En misant sur l'union des forces vives, le développement solidaire et le respect de notre identité commune, nous voulons léguer aux générations futures une Commune revitalisée, fière de son passé et confiante en son avenir.<br>
+                            Cette approche holistique vise à renforcer la cohésion sociale, à créer des opportunités concrètes pour tous, et à améliorer significativement la qualité de vie des habitants à travers des initiatives participatives, innovantes et mesurables.<br>
+                            Le renouveau de Fandène ne sera pas l'œuvre d'une seule personne, mais celle de tous. L'ARF vous invite à prendre part à cette aventure collective, à apporter vos compétences, votre énergie et vos idées pour transformer ensemble notre Commune.<br>
+                            Parce que Fandène mérite mieux. Parce que l'avenir se construit aujourd'hui, <FONT color="green"><strong>Rejoignez le mouvement !</strong></FONT> </p>
                         </div>
+
                         <div class="about-cards">
-                            <div class="about-card"><div class="card-icon">🌱</div><h3>Notre Vision</h3><p>Construire un <strong>Fandène uni, prospère et autonome</strong>, où chaque citoyen vit dignement, participe activement aux décisions collectives, et bénéficie d’un développement harmonieux fondé sur la justice sociale, la valorisation des ressources locales et la préservation de notre identité culturelle.
-                            Nous rêvons d’un Fandène qui inspire, d’un Fandène comme modèle de résilience, d’innovation et de solidarité, capable de porter haut les aspirations de ses enfants tout en restant fidèle à ses racines.<br />
-                            <strong>Par une pensée globale, nous dessinerons les voies du développement de Fandène.</strong>
-                            </p></div>
-                            <div class="about-card"><div class="card-icon">🎯</div><h3>Notre Mission</h3><p>Axé sur un modèle de développement global, notre mission est d’Agir concrètement pour le renouveau économique, social, culturel et environnemental de Fandène, en mobilisant les forces vives de la communauté autour d’un projet collectif, inclusif et durable.<br />
-                            <strong>Par l’action, l’écoute et l’unité, nous bâtirons ensemble le Fandène de demain.</strong>
-                            </p></div>
-                            <div class="about-card"><div class="card-icon">👥</div><h3>Nos principes</h3><p>1.	Gouvernance responsable et participative
-                            La prise de décision doit impliquer toutes les couches de la société, en favorisant la concertation et la consultation citoyenne.<br />
-                            2.	Autonomie et autosuffisance économique
-                            Nous encourageons la création de richesses locales à travers l’entrepreneuriat, l’innovation et l’exploitation durable des ressources de Fandène.<br />
-                            3.	Primauté de l’intérêt général
-                            Nos actions seront toujours guidées par l’intérêt collectif plutôt que par des ambitions personnelles ou partisanes.<br />
-                            4.	Promotion de la jeunesse et des femmes
-                            La jeunesse et les femmes sont au cœur de notre projet de société. Nous nous engageons à leur offrir des opportunités de formation, d’emploi et de leadership. Nous portons la solidarité intergénérationnelle et l’inclusion sociale comme des priorités de gouvernance.<br />
-                            5.	Éducation et connaissance comme piliers du développement
-                            Nous plaçons l’éducation et la formation au centre de notre projet, car elles sont la clé du progrès et de l’émancipation.<br />
-                            <strong>Par une montée en compétence collective, Fandène gagnera son autonomie.</strong>
-                            </p></div>
+                            <div class="about-card"><div class="card-icon">🎯</div><h3>Notre Vision</h3><p>Construire un <strong>Fandène uni, prospère et autonome</strong>, où chaque citoyen vit dignement, participe activement aux décisions collectives, et bénéficie d'un développement harmonieux fondé sur la justice sociale, la valorisation des ressources locales et la préservation de notre identité culturelle. Nous rêvons d'un Fandène qui inspire, d'un Fandène comme modèle de résilience, d'innovation et de solidarité, capable de porter haut les aspirations de ses enfants tout en restant fidèle à ses racines.<br><strong>Par une pensée globale, nous dessinerons les voies du développement de Fandène.</strong> </p></div>
+
+                            <div class="about-card"><div class="card-icon">⚡</div><h3>Notre Mission</h3><p>Axé sur un modèle de développement global, notre mission est d'Agir concrètement pour le renouveau économique, social, culturel et environnemental de Fandène, en mobilisant les forces vives de la communauté autour d'un projet collectif, inclusif et durable.<br><strong>Par l'action, l'écoute et l'unité, nous bâtirons ensemble le Fandène de demain.</strong> </p></div>
+
+                            <div class="about-card"><div class="card-icon">📋</div><h3>Nos principes</h3><p>1. Gouvernance responsable et participative : La prise de décision doit impliquer toutes les couches de la société, en favorisant la concertation et la consultation citoyenne.<br>
+                            2. Autonomie et autosuffisance économique : Nous encourageons la création de richesses locales à travers l'entrepreneuriat, l'innovation et l'exploitation durable des ressources de Fandène.<br>
+                            3. Primauté de l'intérêt général : Nos actions seront toujours guidées par l'intérêt collectif plutôt que par des ambitions personnelles ou partisanes.<br>
+                            4. Promotion de la jeunesse et des femmes : La jeunesse et les femmes sont au cœur de notre projet de société. Nous nous engageons à leur offrir des opportunités de formation, d'emploi et de leadership. Nous portons la solidarité intergénérationnelle et l'inclusion sociale comme des priorités de gouvernance.<br>
+                            5. Éducation et connaissance comme piliers du développement : Nous plaçons l'éducation et la formation au centre de notre projet, car elles sont la clé du progrès et de l'émancipation.<br><strong>Par une montée en compétence collective, Fandène gagnera son autonomie.</strong> </p></div>
                         </div>
                     </div>
                 </div>
             </section>
         </div>
-        
+
         <!-- PAGE VALEURS -->
         <div id="valeurs" class="page">
             <section class="section">
                 <div class="container">
-                    <h2 class="section-title"> 💎 Nos Valeurs Fondamentales</h2>
-                    <p style="text-align:center; max-width:700px; margin:-30px auto 50px;">
-                        Par l’Innovation et la prospective, nous conforterons la vision du Fandène de demain.
+                    <h2 class="section-title">💎 Nos Valeurs Fondamentales</h2>
+                    <p style="text-align:center; max-width:700px; margin:30px auto 50px;">
+                        Par l'Innovation et la prospective, nous conforterons la vision du Fandène de demain.
                     </p>
                     <div class="values-grid">
                         <div class="value-item">
                             <i class="fas fa-users value-icon"></i>
                             <h3>Solidarité et Cohésion Sociale</h3>
-                            <p>Nous croyons en une communauté unie où chaque individu joue un rôle actif dans le développement collectif. L’entraide et la fraternité sont au cœur de notre engagement.</p>
+                            <p>Nous croyons en une communauté unie où chaque individu joue un rôle actif dans le développement collectif. L'entraide et la fraternité sont au cœur de notre engagement.</p>
                         </div>
-                        
+
                         <div class="value-item">
                             <i class="fas fa-balance-scale value-icon"></i>
                             <h3>Intégrité et Responsabilité</h3>
-                            <p>La confiance de la population est notre priorité. Nous ferons preuve d’une honnêteté, d’une rigueur et d’une éthique irréprochables dans l'exercice du pouvoir et dans la gestion des ressources et des décisions prises dans l’intérêt de tous. Rendre des comptes et assumer les conséquences des décisions prises pour l’intérêt collectif sera une de nos responsabilités.</p>
+                            <p>La confiance de la population est notre priorité. Nous ferons preuve d'une honnêteté, d'une rigueur et d'une éthique irréprochables dans l'exercice du pouvoir et dans la gestion des ressources et des décisions prises dans l'intérêt de tous. Rendre des comptes et assumer les conséquences des décisions prises pour l'intérêt collectif sera une de nos responsabilités.</p>
                         </div>
-                        
+
                         <div class="value-item">
                             <i class="fas fa-gavel value-icon"></i>
                             <h3>Justice et Équité</h3>
-                            <p>Nous défendons l’égalité des chances pour tous, sans distinction d’origine, de sexe ou de classe sociale. Nous luttons contre toute forme d’injustice et de marginalisation en respectant la diversité des opinions et des identités au sein de Fandène.</p>
+                            <p>Nous défendons l'égalité des chances pour tous, sans distinction d'origine, de sexe ou de classe sociale. Nous luttons contre toute forme d'injustice et de marginalisation en respectant la diversité des opinions et des identités au sein de Fandène.</p>
                         </div>
-                        
+
                         <div class="value-item">
                             <i class="fas fa-leaf value-icon"></i>
                             <h3>Durabilité</h3>
                             <p>Nous prônons un développement qui respecte notre environnement, valorise nos ressources naturelles et prépare un avenir viable pour les générations futures inscrit dans les défis mondiaux en termes de développement durable.</p>
                         </div>
-                        
+
                         <div class="value-item">
                             <i class="fas fa-book value-icon"></i>
                             <h3>Culture et Identité</h3>
                             <p>Nous valorisons le patrimoine culturel de Fandène et veillons à préserver nos traditions tout en les adaptant aux réalités contemporaines.</p>
                         </div>
-                        
+
                         <div class="value-item">
                             <i class="fas fa-hand-holding-heart value-icon"></i>
                             <h3>Démocratie</h3>
-                            <p>Nous croyons en une gouvernance basée sur l’écoute et la participation active des citoyens dans les décisions qui impactent leur vie quotidienne. Il s’agit pour nous de veiller à une Proximité avec toutes les forces par une écoute attentive et présence active auprès des populations.</p>
+                            <p>Nous croyons en une gouvernance basée sur l'écoute et la participation active des citoyens dans les décisions qui impactent leur vie quotidienne. Il s'agit pour nous de veiller à une Proximité avec toutes les forces par une écoute attentive et présence active auprès des populations.</p>
                         </div>
                     </div>
                 </div>
             </section>
         </div>
-        
+
         <!-- PAGE AXES STRATÉGIQUES -->
         <div id="axes" class="page">
             <section class="section axes-section">
                 <div class="container">
                     <h2 class="section-title">⚡ Nos Axes Stratégiques</h2>
-                    <p style="text-align:center; max-width:700px; margin:-30px auto 50px;">
+                    <p style="text-align:center; max-width:700px; margin:30px auto 50px;">
                         Notre vision repose sur cinq piliers structurants pour transformer durablement Fandène.
                     </p>
-                    
                     <div class="axes-grid">
                         <div class="axis-card">
-                            <h3>📊 Développement Économique</h3>
+                            <h3>📊 Développement économique</h3>
                             <p>Stimuler l'entrepreneuriat local et créer des emplois durables.</p>
                             <button class="btn btn-primary" onclick="showPage('axe-economique')">Découvrir</button>
                         </div>
@@ -1540,13 +1778,13 @@
 
                         <div class="axis-card">
                             <h3>🌱 Environnement & Durabilité</h3>
-                            <p>Préserver nos ressources et préparer l’avenir.</p>
+                            <p>Préserver nos ressources et préparer l'avenir.</p>
                             <button class="btn btn-primary" onclick="showPage('axe-environnement')">Découvrir</button>
                         </div>
 
                         <div class="axis-card">
                             <h3>🤝 Cohésion Sociale</h3>
-                            <p>Renforcer l’unité, l’inclusion et la solidarité.</p>
+                            <p>Renforcer l'unité, l'inclusion et la solidarité.</p>
                             <button class="btn btn-primary" onclick="showPage('axe-cohesion')">Découvrir</button>
                         </div>
                     </div>
@@ -1560,19 +1798,18 @@
                 <div class="container axis-detail">
                     <button class="back-button" onclick="showPage('axes')">← Retour aux axes</button>
 
-                    <h2>📊 Développement Économique</h2>
+                    <h2>📊 Développement économique</h2>
                     <p style="text-align:center; font-size:18px; color:#666;">
-                        Stimuler l’entrepreneuriat local et créer des opportunités d’emploi durables
+                        Stimuler l'entrepreneuriat local et créer des opportunités d'emploi durables
                     </p>
 
                     <div class="section">
                         <h3>📌 Pilotage stratégique</h3>
-
                         <div class="pilotage-grid">
                             <div class="pilotage-card objectifs">
                                 <h3><span class="pilotage-icon">🎯</span>Objectifs</h3>
                                 <ul>
-                                    <li>Stimuler l’entrepreneuriat local</li>
+                                    <li>Stimuler l'entrepreneuriat local</li>
                                     <li>Créer des emplois durables</li>
                                     <li>Renforcer les filières économiques locales</li>
                                 </ul>
@@ -1600,7 +1837,6 @@
 
                     <div class="section">
                         <h3>🧭 Feuille de route</h3>
-
                         <div class="roadmap">
                             <div class="roadmap-step">
                                 <span>Phase 1</span>
@@ -1617,7 +1853,7 @@
                             <div class="roadmap-step">
                                 <span>Phase 3</span>
                                 <h4>Déploiement</h4>
-                                <p>Développement des marchés locaux, partenariats économiques et création d’emplois.</p>
+                                <p>Développement des marchés locaux, partenariats économiques et création d'emplois.</p>
                             </div>
 
                             <div class="roadmap-step">
@@ -1639,17 +1875,16 @@
 
                     <h2>🎓 Éducation & Formation</h2>
                     <p style="text-align:center; font-size:18px; color:#666;">
-                        Former une jeunesse compétente, autonome et tournée vers l’avenir
+                        Former une jeunesse compétente, autonome et tournée vers l'avenir
                     </p>
 
                     <div class="section">
                         <h3>📌 Pilotage stratégique</h3>
-
                         <div class="pilotage-grid">
                             <div class="pilotage-card objectifs">
                                 <h3><span class="pilotage-icon">🎯</span>Objectifs</h3>
                                 <ul>
-                                    <li>Accès équitable à l’éducation</li>
+                                    <li>Accès équitable à l'éducation</li>
                                     <li>Réduction du décrochage scolaire</li>
                                     <li>Développement des compétences clés</li>
                                 </ul>
@@ -1677,7 +1912,6 @@
 
                     <div class="section">
                         <h3>🧭 Feuille de route</h3>
-
                         <div class="roadmap">
                             <div class="roadmap-step">
                                 <span>Phase 1</span>
@@ -1700,7 +1934,7 @@
                             <div class="roadmap-step">
                                 <span>Phase 4</span>
                                 <h4>Insertion</h4>
-                                <p>Orientation, stages, accompagnement vers l’emploi et l’auto-entrepreneuriat.</p>
+                                <p>Orientation, stages, accompagnement vers l'emploi et l'auto-entrepreneuriat.</p>
                             </div>
                         </div>
                     </div>
@@ -1721,7 +1955,6 @@
 
                     <div class="section">
                         <h3>📌 Pilotage stratégique</h3>
-
                         <div class="pilotage-grid">
                             <div class="pilotage-card objectifs">
                                 <h3><span class="pilotage-icon">🎯</span>Objectifs</h3>
@@ -1754,7 +1987,6 @@
 
                     <div class="section">
                         <h3>🧭 Feuille de route</h3>
-
                         <div class="roadmap">
                             <div class="roadmap-step">
                                 <span>Phase 1</span>
@@ -1793,12 +2025,11 @@
 
                     <h2>🌱 Environnement & Durabilité</h2>
                     <p style="text-align:center; font-size:18px; color:#666;">
-                        Protéger nos ressources naturelles et préparer l’avenir
+                        Protéger nos ressources naturelles et préparer l'avenir
                     </p>
 
                     <div class="section">
                         <h3>📌 Pilotage stratégique</h3>
-
                         <div class="pilotage-grid">
                             <div class="pilotage-card objectifs">
                                 <h3><span class="pilotage-icon">🎯</span>Objectifs</h3>
@@ -1822,7 +2053,7 @@
                                 <h3><span class="pilotage-icon">📊</span>Indicateurs</h3>
                                 <ol>
                                     <li>Superficie reboisée</li>
-                                    <li>Qualité de l’air et de l’eau</li>
+                                    <li>Qualité de l'air et de l'eau</li>
                                     <li>Réduction des déchets</li>
                                 </ol>
                             </div>
@@ -1831,7 +2062,6 @@
 
                     <div class="section">
                         <h3>🧭 Feuille de route</h3>
-
                         <div class="roadmap">
                             <div class="roadmap-step">
                                 <span>Phase 1</span>
@@ -1870,12 +2100,11 @@
 
                     <h2>🤝 Cohésion Sociale</h2>
                     <p style="text-align:center; font-size:18px; color:#666;">
-                        Renforcer l’unité, la solidarité et l’inclusion sociale
+                        Renforcer l'unité, la solidarité et l'inclusion sociale
                     </p>
 
                     <div class="section">
                         <h3>📌 Pilotage stratégique</h3>
-
                         <div class="pilotage-grid">
                             <div class="pilotage-card objectifs">
                                 <h3><span class="pilotage-icon">🎯</span>Objectifs</h3>
@@ -1908,7 +2137,6 @@
 
                     <div class="section">
                         <h3>🧭 Feuille de route</h3>
-
                         <div class="roadmap">
                             <div class="roadmap-step">
                                 <span>Phase 1</span>
@@ -1939,181 +2167,201 @@
             </section>
         </div>
 
-        <!-- PAGE: PUBLICATIONS -->
+        <!-- PAGE PUBLICATIONS -->
         <div id="publications" class="page">
-            <section class="publications-section">
+            <section class="section publications-section">
                 <div class="container">
                     <h2 class="section-title">📚 Nos Publications</h2>
-                    <p style="text-align:center; max-width:700px; margin:-30px auto 50px;">
-                    Découvrez nos rapports, études et ressources pour le renouveau de Fandène.</p>
+                    <p style="text-align:center; max-width:800px; margin:0 auto 40px; font-size:1.1em; color:var(--text-light);">
+                        Découvrez nos rapports, études et ressources pour le renouveau de Fandène.
+                    </p>
 
                     <div class="filters">
-                        <button class="filter-btn active" onclick="filterPublications('all')">Tous</button>
-                        <button class="filter-btn" onclick="filterPublications('rapport')">Rapports</button>
-                        <button class="filter-btn" onclick="filterPublications('etude')">Études</button>
-                        <button class="filter-btn" onclick="filterPublications('guide')">Guides</button>
-                        <button class="filter-btn" onclick="filterPublications('newsletter')">Newsletters</button>
+                        <button class="filter-btn active" data-filter="all">Toutes</button>
+                        <button class="filter-btn" data-filter="economie">Économie</button>
+                        <button class="filter-btn" data-filter="education">Éducation</button>
+                        <button class="filter-btn" data-filter="sante">Santé</button>
+                        <button class="filter-btn" data-filter="environnement">Environnement</button>
+                        <button class="filter-btn" data-filter="cohesion">Cohésion Sociale</button>
                     </div>
 
-                    <div class="publications-grid" id="publicationsGrid">
-                        <!-- Rapport 1 -->
-                        <div class="publication-card" data-category="rapport">
-                            <div class="card-header">📊</div>
+                    <div class="publications-grid">
+                        <!-- Publication 1 -->
+                        <div class="publication-card" data-category="economie">
+                            <div class="card-header">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
                             <div class="card-content">
                                 <h3 class="card-title">Diagnostic Économique de Fandène 2024</h3>
                                 <p class="card-description">Une analyse complète de l'état actuel de l'économie locale, identifiant les secteurs porteurs et les opportunités d'investissement.</p>
                                 <div class="card-meta">
-                                    <span class="card-category">Rapport</span>
-                                    <span>Janvier 2024</span>
+                                    <span class="card-category">Économie</span>
+                                    <span><i class="fas fa-calendar-alt"></i> Janvier 2024</span>
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <button class="btn-download">⬇️ PDF</button>
-                                <button class="btn-view">👁️ Aperçu</button>
+                                <button class="btn-download"><i class="fas fa-download"></i> Télécharger</button>
+                                <button class="btn-view"><i class="fas fa-eye"></i> Consulter</button>
                             </div>
                         </div>
 
-                        <!-- Étude 1 -->
-                        <div class="publication-card" data-category="etude">
-                            <div class="card-header">🔬</div>
+                        <!-- Publication 2 -->
+                        <div class="publication-card" data-category="environnement">
+                            <div class="card-header">
+                                <i class="fas fa-leaf"></i>
+                            </div>
                             <div class="card-content">
                                 <h3 class="card-title">Étude d'Impact Environnemental</h3>
                                 <p class="card-description">Évaluation détaillée des enjeux écologiques de Fandène et recommandations pour une transition durable.</p>
                                 <div class="card-meta">
-                                    <span class="card-category">Étude</span>
-                                    <span>Mars 2024</span>
+                                    <span class="card-category">Environnement</span>
+                                    <span><i class="fas fa-calendar-alt"></i> Février 2024</span>
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <button class="btn-download">⬇️ PDF</button>
-                                <button class="btn-view">👁️ Aperçu</button>
+                                <button class="btn-download"><i class="fas fa-download"></i> Télécharger</button>
+                                <button class="btn-view"><i class="fas fa-eye"></i> Consulter</button>
                             </div>
                         </div>
 
-                        <!-- Guide 1 -->
-                        <div class="publication-card" data-category="guide">
-                            <div class="card-header">📖</div>
+                        <!-- Publication 3 -->
+                        <div class="publication-card" data-category="economie">
+                            <div class="card-header">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
                             <div class="card-content">
                                 <h3 class="card-title">Guide de l'Entrepreneuriat Local</h3>
                                 <p class="card-description">Manuel pratique pour créer et développer une entreprise à Fandène avec accès aux ressources et financements.</p>
                                 <div class="card-meta">
-                                    <span class="card-category">Guide</span>
-                                    <span>Février 2024</span>
+                                    <span class="card-category">Économie</span>
+                                    <span><i class="fas fa-calendar-alt"></i> Mars 2024</span>
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <button class="btn-download">⬇️ PDF</button>
-                                <button class="btn-view">👁️ Aperçu</button>
+                                <button class="btn-download"><i class="fas fa-download"></i> Télécharger</button>
+                                <button class="btn-view"><i class="fas fa-eye"></i> Consulter</button>
                             </div>
                         </div>
 
-                        <!-- Rapport 2 -->
-                        <div class="publication-card" data-category="rapport">
-                            <div class="card-header">🎓</div>
+                        <!-- Publication 4 -->
+                        <div class="publication-card" data-category="education">
+                            <div class="card-header">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
                             <div class="card-content">
                                 <h3 class="card-title">Rapport sur l'Éducation et Formation</h3>
                                 <p class="card-description">État des lieux du secteur éducatif et plan d'action pour améliorer la qualité et l'accessibilité.</p>
                                 <div class="card-meta">
-                                    <span class="card-category">Rapport</span>
-                                    <span>Avril 2024</span>
+                                    <span class="card-category">Éducation</span>
+                                    <span><i class="fas fa-calendar-alt"></i> Avril 2024</span>
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <button class="btn-download">⬇️ PDF</button>
-                                <button class="btn-view">👁️ Aperçu</button>
+                                <button class="btn-download"><i class="fas fa-download"></i> Télécharger</button>
+                                <button class="btn-view"><i class="fas fa-eye"></i> Consulter</button>
                             </div>
                         </div>
 
-                        <!-- Newsletter -->
-                        <div class="publication-card" data-category="newsletter">
-                            <div class="card-header">📰</div>
+                        <!-- Publication 5 -->
+                        <div class="publication-card" data-category="cohesion">
+                            <div class="card-header">
+                                <i class="fas fa-newspaper"></i>
+                            </div>
                             <div class="card-content">
                                 <h3 class="card-title">Newsletter Décembre 2024</h3>
                                 <p class="card-description">Actualités du mois, avancées des projets et ressources recommandées pour nos adhérents.</p>
                                 <div class="card-meta">
                                     <span class="card-category">Newsletter</span>
-                                    <span>Décembre 2024</span>
+                                    <span><i class="fas fa-calendar-alt"></i> Décembre 2024</span>
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <button class="btn-download">⬇️ PDF</button>
-                                <button class="btn-view">👁️ Aperçu</button>
+                                <button class="btn-download"><i class="fas fa-download"></i> Télécharger</button>
+                                <button class="btn-view"><i class="fas fa-eye"></i> Consulter</button>
                             </div>
                         </div>
 
-                        <!-- Étude 2 -->
-                        <div class="publication-card" data-category="etude">
-                            <div class="card-header">❤️</div>
+                        <!-- Publication 6 -->
+                        <div class="publication-card" data-category="sante">
+                            <div class="card-header">
+                                <i class="fas fa-heartbeat"></i>
+                            </div>
                             <div class="card-content">
                                 <h3 class="card-title">Étude de Santé et Bien-être</h3>
                                 <p class="card-description">Analyse de l'accès aux soins et recommandations pour renforcer le système de santé communautaire.</p>
                                 <div class="card-meta">
-                                    <span class="card-category">Étude</span>
-                                    <span>Mai 2024</span>
+                                    <span class="card-category">Santé</span>
+                                    <span><i class="fas fa-calendar-alt"></i> Mai 2024</span>
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <button class="btn-download">⬇️ PDF</button>
-                                <button class="btn-view">👁️ Aperçu</button>
+                                <button class="btn-download"><i class="fas fa-download"></i> Télécharger</button>
+                                <button class="btn-view"><i class="fas fa-eye"></i> Consulter</button>
                             </div>
                         </div>
 
-                        <!-- Guide 2 -->
-                        <div class="publication-card" data-category="guide">
-                            <div class="card-header">♻️</div>
+                        <!-- Publication 7 -->
+                        <div class="publication-card" data-category="environnement">
+                            <div class="card-header">
+                                <i class="fas fa-recycle"></i>
+                            </div>
                             <div class="card-content">
                                 <h3 class="card-title">Guide des Pratiques Durables</h3>
                                 <p class="card-description">Conseils pratiques pour adopter un mode de vie respectueux de l'environnement.</p>
                                 <div class="card-meta">
-                                    <span class="card-category">Guide</span>
-                                    <span>Juin 2024</span>
+                                    <span class="card-category">Environnement</span>
+                                    <span><i class="fas fa-calendar-alt"></i> Juin 2024</span>
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <button class="btn-download">⬇️ PDF</button>
-                                <button class="btn-view">👁️ Aperçu</button>
+                                <button class="btn-download"><i class="fas fa-download"></i> Télécharger</button>
+                                <button class="btn-view"><i class="fas fa-eye"></i> Consulter</button>
                             </div>
                         </div>
 
-                        <!-- Newsletter 2 -->
-                        <div class="publication-card" data-category="newsletter">
-                            <div class="card-header">🌟</div>
+                        <!-- Publication 8 -->
+                        <div class="publication-card" data-category="cohesion">
+                            <div class="card-header">
+                                <i class="fas fa-newspaper"></i>
+                            </div>
                             <div class="card-content">
                                 <h3 class="card-title">Newsletter Novembre 2024</h3>
                                 <p class="card-description">Retour sur nos actions et appels à participation pour les prochaines initiatives communautaires.</p>
                                 <div class="card-meta">
                                     <span class="card-category">Newsletter</span>
-                                    <span>Novembre 2024</span>
+                                    <span><i class="fas fa-calendar-alt"></i> Novembre 2024</span>
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <button class="btn-download">⬇️ PDF</button>
-                                <button class="btn-view">👁️ Aperçu</button>
+                                <button class="btn-download"><i class="fas fa-download"></i> Télécharger</button>
+                                <button class="btn-view"><i class="fas fa-eye"></i> Consulter</button>
                             </div>
                         </div>
 
-                        <!-- Rapport 3 -->
-                        <div class="publication-card" data-category="rapport">
-                            <div class="card-header">🤝</div>
+                        <!-- Publication 9 -->
+                        <div class="publication-card" data-category="cohesion">
+                            <div class="card-header">
+                                <i class="fas fa-users"></i>
+                            </div>
                             <div class="card-content">
                                 <h3 class="card-title">Rapport de Cohésion Sociale</h3>
                                 <p class="card-description">Analyse des initiatives communautaires et recommandations pour renforcer l'unité et la participation.</p>
                                 <div class="card-meta">
-                                    <span class="card-category">Rapport</span>
-                                    <span>Juillet 2024</span>
+                                    <span class="card-category">Cohésion Sociale</span>
+                                    <span><i class="fas fa-calendar-alt"></i> Juillet 2024</span>
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <button class="btn-download">⬇️ PDF</button>
-                                <button class="btn-view">👁️ Aperçu</button>
+                                <button class="btn-download"><i class="fas fa-download"></i> Télécharger</button>
+                                <button class="btn-view"><i class="fas fa-eye"></i> Consulter</button>
                             </div>
                         </div>
                     </div>
 
-                    <div id="emptyState" class="empty-state hidden">
-                        <div class="empty-state-icon">🔍</div>
+                    <div class="empty-state hidden">
+                        <div class="empty-state-icon">📭</div>
                         <h3>Aucune publication trouvée</h3>
-                        <p>Aucune publication ne correspond à votre recherche. Essayez une autre catégorie.</p>
+                        <p>Aucune publication ne correspond à ce filtre.</p>
                     </div>
 
                     <div class="stats-section">
@@ -2138,209 +2386,97 @@
             </section>
         </div>
 
-        <script>
-        // Navigation entre pages
-        function showPage(pageId) {
-            // Masquer toutes les pages
-            const pages = document.querySelectorAll('.page');
-            pages.forEach(page => page.classList.remove('active'));
-
-            // Afficher la page demandée
-            const selectedPage = document.getElementById(pageId);
-            if (selectedPage) {
-                selectedPage.classList.add('active');
-            }
-
-            // Mettre à jour les liens de navigation
-            const navLinks = document.querySelectorAll('.nav-link');
-            navLinks.forEach(link => link.classList.remove('active'));
-            event.target.classList.add('active');
-
-            // Scroller en haut
-            window.scrollTo(0, 0);
-        }
-
-        // Filtrage des publications
-        function filterPublications(category) {
-            const cards = document.querySelectorAll('.publication-card');
-            const buttons = document.querySelectorAll('.filter-btn');
-            const emptyState = document.getElementById('emptyState');
-
-            // Mettre à jour le bouton actif
-            buttons.forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-
-            // Filtrer les cartes
-            let visibleCount = 0;
-            cards.forEach(card => {
-                if (category === 'all' || card.getAttribute('data-category') === category) {
-                    card.classList.remove('hidden');
-                    visibleCount++;
-                } else {
-                    card.classList.add('hidden');
-                }
-            });
-
-            // Afficher ou masquer le message "aucun résultat"
-            if (visibleCount === 0) {
-                emptyState.classList.remove('hidden');
-            } else {
-                emptyState.classList.add('hidden');
-            }
-        }
-
-        // Fonction de recherche
-        function performSearch() {
-            const query = document.getElementById('searchInput').value.toLowerCase();
-            
-            if (!query.trim()) {
-                alert('Veuillez entrer un terme de recherche');
-                return;
-            }
-
-            // Aller à la page publications
-            showPage('publications');
-
-            // Chercher dans les publications
-            const cards = document.querySelectorAll('.publication-card');
-            const buttons = document.querySelectorAll('.filter-btn');
-            const emptyState = document.getElementById('emptyState');
-
-            // Réinitialiser les filtres
-            buttons.forEach(btn => btn.classList.remove('active'));
-            buttons[0].classList.add('active');
-
-            let visibleCount = 0;
-            cards.forEach(card => {
-                const title = card.querySelector('.card-title').textContent.toLowerCase();
-                const description = card.querySelector('.card-description').textContent.toLowerCase();
-
-                if (title.includes(query) || description.includes(query)) {
-                    card.classList.remove('hidden');
-                    visibleCount++;
-                } else {
-                    card.classList.add('hidden');
-                }
-            });
-
-            if (visibleCount === 0) {
-                emptyState.classList.remove('hidden');
-            } else {
-                emptyState.classList.add('hidden');
-            }
-
-            // Message de résultat
-            alert(`${visibleCount} publication(s) trouvée(s) pour "${query}"`);
-        }
-
-        // Touche Entrée pour la recherche
-        document.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('searchInput').addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') {
-                    performSearch();
-                }
-            });
-
-            document.querySelectorAll('.btn-download, .btn-view').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const card = btn.closest('.publication-card');
-                    const title = card.querySelector('.card-title').textContent;
-                    alert(`Action sur: ${title}`);
-                });
-            });
-        });
-    </script>
-
-        <!-- PAGE REJOINDRE -->
+        <!-- PAGE REJOINDRE / ADHÉSION -->
         <div id="rejoindre" class="page">
-            <section class="section">
+            <section class="section participate">
                 <div class="container">
                     <h2 class="section-title">Rejoignez le Mouvement</h2>
+
                     <div class="participate-content">
                         <div class="participate-card">
-                            <span class="step-number">1</span>
+                            <div class="step-number">1</div>
                             <h3>Remplissez le formulaire</h3>
                             <p>Partagez votre intérêt et vos domaines de participation</p>
                         </div>
-                        
+
                         <div class="participate-card">
-                            <span class="step-number">2</span>
+                            <div class="step-number">2</div>
                             <h3>Rejoignez notre équipe</h3>
                             <p>Participez à nos réunions et forums</p>
                         </div>
-                        
+
                         <div class="participate-card">
-                            <span class="step-number">3</span>
+                            <div class="step-number">3</div>
                             <h3>Contribuez au changement</h3>
                             <p>Participez à nos initiatives et projets</p>
                         </div>
                     </div>
-                    <div class="forms-grid" style="margin-top: 40px;">
-                        <div class="form-card">
-                            <h3>Rejoignez l'ARF</h3>
-                            <form id="adhesionForm" onsubmit="submitAdhesionForm(event)">
-                            <div class="form-group">
-                                <label for="nometprenom">Nom et Prénom *</label>
-                                <input type="text" id="nometprenom" name="nometprenom" required>
-                            </div>
 
-                            <div class="form-group">
-                                <label for="email">Email *</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
+                    <div class="adhesion-form">
+                        <div class="form-card" style="background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 50px;">
+                            <h3>📝 Formulaire d'Adhésion</h3>
+                            <form id="adhesionForm">
+                                <div class="form-group">
+                                    <label for="nometprenom">Nom et Prénom *</label>
+                                    <input type="text" id="nometprenom" name="nometprenom" required>
+                                </div>
 
-                            <div class="form-group">
-                                <label for="telephone">Téléphone</label>
-                                <input type="tel" id="telephone" name="telephone">
-                            </div>
+                                <div class="form-group">
+                                    <label for="email">Email *</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
 
-                            <div class="form-group">
-                                <label for="villagequartier">Village/Quartier *</label>
-                                <input type="text" id="villagequartier" name="villagequartier" required>
-                            </div>
+                                <div class="form-group">
+                                    <label for="telephone">Téléphone</label>
+                                    <input type="tel" id="telephone" name="telephone">
+                                </div>
 
-                            <div class="form-group">
-                                <label for="participation">Domaine de participation *</label>
-                                <select id="participation" name="participation" required>
-                                    <option value="">-- Sélectionner --</option>
-                                    <option value="economie">Développement économique</option>
-                                    <option value="education">Éducation et Formation</option>
-                                    <option value="sante">Santé et Bien-être</option>
-                                    <option value="environnement">Environnement et Durabilité</option>
-                                    <option value="cohesion">Cohésion Sociale</option>
-                                    <option value="autre">Autre</option>
-                                </select>
-                            </div>
+                                <div class="form-group">
+                                    <label for="villagequartier">Village/Quartier *</label>
+                                    <input type="text" id="villagequartier" name="villagequartier" required>
+                                </div>
 
-                            <div class="form-group">
-                                <label for="motivations">Vos motivations</label>
-                                <textarea id="motivations" name="motivations" rows="4"></textarea>
-                            </div>
+                                <div class="form-group">
+                                    <label for="motivations">Pourquoi souhaitez-vous rejoindre l'ARF ?</label>
+                                    <textarea id="motivations" name="motivations" rows="4" required></textarea>
+                                </div>
 
-                            <div class="form-group">
-                                <input type="checkbox" id="consentement" name="consentement" required>
-                                <label for="consentement">
-                                    J'accepte la <a href="#politique-confidentialite" target="_blank">politique de confidentialité</a> *
-                                </label>
-                            </div>
+                                <div class="form-group">
+                                    <label for="participation">Dans quel(s) domaine(s) souhaitez-vous contribuer ?</label>
+                                    <select id="participation" name="participation" required>
+                                        <option value="">-- Sélectionnez --</option>
+                                        <option value="Développement économique">Développement économique</option>
+                                        <option value="Éducation & Formation">Éducation & Formation</option>
+                                        <option value="Santé & Bien-être">Santé & Bien-être</option>
+                                        <option value="Environnement & Durabilité">Environnement & Durabilité</option>
+                                        <option value="Cohésion Sociale">Cohésion Sociale</option>
+                                        <option value="Communication & Médias">Communication & Médias</option>
+                                        <option value="Autre">Autre</option>
+                                    </select>
+                                </div>
 
-                            <div class="form-group">
-                                <input type="checkbox" id="newsletter" name="newsletter">
-                                <label for="newsletter">
-                                    Je souhaite recevoir les actualités de l'ARF
-                                </label>
-                            </div>
+                                <input type="hidden" id="dateinscription" name="dateinscription">
 
-                            <button type="submit" class="btn btn-primary">Adhérer maintenant</button>
+                                <div class="form-group">
+                                    <label>
+                                        <input type="checkbox" name="consentement" required>
+                                        J'accepte que mes données soient utilisées pour mon adhésion à l'ARF *
+                                    </label>
+                                </div>
 
-                            <div class="form-group">
-                                <label>Date d'inscription</label>
-                                <input type="date" name="dateinscription" required></div>
-                                <button type="submit" class="btn btn-primary">Envoyer ma candidature</button>
+                                <div class="form-group">
+                                    <label>
+                                        <input type="checkbox" name="newsletter">
+                                        Je souhaite recevoir la newsletter de l'ARF
+                                    </label>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary btn-full-width" style="width: 100%; margin-top: 20px;">
+                                    ✅ Envoyer ma candidature
+                                </button>
                             </form>
                         </div>
-                     </div>
+                    </div>
                 </div>
             </section>
         </div>
@@ -2348,253 +2484,245 @@
 
     <!-- FOOTER -->
     <footer class="footer">
-        <div class="footer-content container">
-            <div class="footer-section">
-                <h4>ARF</h4><p>Alliance pour le Renouveau de Fandène</p>
-            </div>
-            <div class="footer-section">
-                <h4>Liens Rapides</h4>
-                 <ul>
-                    <li><a onclick="showPage('axes')" style="cursor:pointer;">Axes Stratégiques</a></li>
-                    <li><a onclick="showPage('publications')" style="cursor:pointer;">Publications</a></li>
-                    <li><a onclick="showPage('rejoindre')" style="cursor:pointer;">J'adhère</a></li>
-                 </ul>
-            </div>
-             <div class="footer-section">
-                <h4>Contact</h4>
-                <p>📧 Email: fandenearf@gmail.com</p>
-                <p>📱 Tél: +221 XX XXX XX XX</p>
-                <p>📍 Fandène, Thiès, Sénégal</p>
-            </div>
-            <div class="footer-section">
-                <h4>Suivez-nous</h4>
-                <div class="social-links">
-                    <a href="https://www.facebook.com/profile.php?id=61585241401932" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>À Propos</h4>
+                    <p>L'Alliance pour le Renouveau de Fandène œuvre pour le développement durable et inclusif de notre commune.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Liens Rapides</h4>
+                    <ul>
+                        <li><a href="#" style="color: white; text-decoration: none;" onclick="showPage('lemouvement')">Notre Mission</a></li>
+                        <li><a href="#" style="color: white; text-decoration: none;" onclick="showPage('axes')">Nos Axes</a></li>
+                        <li><a href="#" style="color: white; text-decoration: none;" onclick="showPage('publications')">Publications</a></li>
+                        <li><a href="#" style="color: white; text-decoration: none;" onclick="showPage('rejoindre')">Nous Rejoindre</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>📍 Fandène, Sénégal</p>
+                    <p>📧 contact@arf-fandene.org</p>
+                    <p>📞 +221 XX XXX XX XX</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Suivez-nous</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Alliance pour le Renouveau de Fandène. Tous droits réservés.</p>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 ARF - Alliance pour le Renouveau de Fandène. Tous droits réservés.</p>
+            </div>
         </div>
     </footer>
 
-    <!-- Lightbox Gallery -->
-    <div id="lightbox" class="gallery-lightbox" onclick="closeLightbox(event)">
-        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
-        <img id="lightbox-img" src="" alt="">
-    </div>
-
     <script>
+        // ========================================
+        // GESTION DES PAGES
+        // ========================================
         function showPage(pageId) {
-            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
-            document.getElementById(pageId).classList.add('active');
-            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-            document.querySelector(`.nav-link[onclick*="showPage('${pageId}')"]`).classList.add('active');
+            // Cacher toutes les pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+
+            // Afficher la page demandée
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) {
+                targetPage.classList.add('active');
+            }
+
+            // Mettre à jour les liens actifs
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => link.classList.remove('active'));
+
+            // Scroll en haut de la page
             window.scrollTo({ top: 0, behavior: 'smooth' });
-            if (window.innerWidth <= 768) toggleMenu();
+
+            // Fermer le menu mobile si ouvert
+            const menu = document.querySelector('.nav-menu');
+            if (menu) {
+                menu.classList.remove('active');
+            }
         }
 
+        // ========================================
+        // MENU HAMBURGER
+        // ========================================
         function toggleMenu() {
-            document.querySelector('.nav-menu').classList.toggle('active');
+            const menu = document.querySelector('.nav-menu');
+            if (menu) {
+                menu.classList.toggle('active');
+            }
         }
 
-        // Configuration Google Apps Script
-            const DOMAINS = [
-            'Cohésion Sociale',
-            'Administration et Gouvernance',
-            'Communication',
-            'Entrepreneuriat et Emploi',
-            'Éducation et Formation',
-            'Santé et Bien-être',
-            'Environnement et Durabilité',
-            'Solidarité et Inclusion',
-            'Autre'
-            ];
+        // ========================================
+        // RECHERCHE
+        // ========================================
+        function performSearch() {
+            const searchInput = document.getElementById('searchInput');
+            const query = searchInput.value.trim().toLowerCase();
 
-        /**
-         * Met à jour les statistiques d'adhésion
-         */
-        async function updateAdhesionStats() {
-        try {
-            // Cette fonction peut afficher les stats en temps réel
-            const response = await fetch(statsUrl);
-            const stats = await response.json();
-            
-            // Vous pouvez afficher les stats quelque part sur la page
-            console.log('Statistiques d\'adhésion:', stats);
-            
-        } catch (error) {
-            console.log('Impossible de charger les stats:', error);
-        }
+            if (!query) {
+                alert('Veuillez entrer un terme de recherche.');
+                return;
+            }
+
+            // Logique de recherche simplifiée
+            alert(`Recherche pour : "${query}"\n\nFonctionnalité en développement.`);
         }
 
-    </script>
+        // ========================================
+        // FILTRES PUBLICATIONS
+        // ========================================
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const publicationCards = document.querySelectorAll('.publication-card');
+        const emptyState = document.querySelector('.empty-state');
 
-    <script>
-        // ============ CONFIGURATION ============
-        
-        // ===== COMPTEUR ANIMÉ =====
-        const counters = document.querySelectorAll('.counter-number');
-        const speed = 200;
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Retirer la classe active de tous les boutons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Ajouter la classe active au bouton cliqué
+                button.classList.add('active');
 
-        const runCounter = (counter) => {
-            const target = +counter.getAttribute('data-target');
-            const increment = target / speed;
-            
-            const updateCount = () => {
-                const count = +counter.innerText;
-                
-                if (count < target) {
-                    counter.innerText = Math.ceil(count + increment);
-                    setTimeout(updateCount, 10);
+                const filter = button.getAttribute('data-filter');
+                let visibleCount = 0;
+
+                publicationCards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    if (filter === 'all' || category === filter) {
+                        card.classList.remove('hidden');
+                        visibleCount++;
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+
+                // Afficher le message si aucune publication
+                if (visibleCount === 0) {
+                    emptyState.classList.remove('hidden');
                 } else {
-                    counter.innerText = target;
-                }
-            };
-            
-            updateCount();
-        };
-
-        // Observer pour démarrer l'animation quand visible
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    counters.forEach(counter => runCounter(counter));
-                    observer.unobserve(entry.target);
+                    emptyState.classList.add('hidden');
                 }
             });
         });
 
-        const statsSection = document.querySelector('.statistics-section');
-        if (statsSection) observer.observe(statsSection);
+        // ========================================
+        // LIGHTBOX GALERIE
+        // ========================================
+        function openLightbox(element) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightboxImage');
 
-        // ===== HAMBURGER MENU =====
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
+            // Vérifier si c'est une image ou une vidéo
+            const img = element.querySelector('img');
+            const video = element.querySelector('video');
 
-        if (hamburger) {
-            hamburger.addEventListener('click', () => {
-                navMenu.classList.toggle('active');
-            });
+            if (img) {
+                lightboxImage.src = img.src;
+                lightbox.classList.add('active');
+            } else if (video) {
+                // Pour les vidéos, on pourrait créer un élément video dans le lightbox
+                // Pour simplifier, on affiche l'image de la vignette
+                alert('Lecture vidéo : fonctionnalité en développement');
+            }
         }
 
-        // ===== SMOOTH SCROLL =====
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                    if (navMenu) navMenu.classList.remove('active');
-                }
-            });
-        });
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+        }
 
-        // ===== FORM SUBMISSION =====
-        const adhesionForm = document.getElementById('adhesion-form');
-        const contactForm = document.getElementById('contact-form');
+        // ========================================
+        // FORMULAIRE D'ADHÉSION - CORRIGÉ
+        // ========================================
+        const adhesionForm = document.getElementById('adhesionForm');
 
         if (adhesionForm) {
             adhesionForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 
+                // Ajouter la date d'inscription automatiquement
+                const dateInscription = new Date().toLocaleDateString('fr-FR');
+                document.getElementById('dateinscription').value = dateInscription;
+                
+                // Préparer les données du formulaire
                 const formData = new FormData(adhesionForm);
-                const url = 'https://script.google.com/macros/s/AKfycby6IyU7KGQoI5NrpPsmvm7ekt568rqZRCrk3Vw65Ckr1_e5gVeMZJzfqCtNNPMf83mi/exec';
+                
+                // URL du Google Apps Script mise à jour
+                const scriptURL = 'https://script.google.com/macros/s/AKfycby9J9MkCNE0K2Drrl7RgKiAnsT3GuxK0RuvU4_XeuZ1nRntDDKW-EzGKfSzRKVZBQ0F/exec';
                 
                 try {
-                    const response = await fetch(url, {
+                    // Afficher un message de chargement
+                    const submitBtn = adhesionForm.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.textContent;
+                    submitBtn.textContent = '⏳ Envoi en cours...';
+                    submitBtn.disabled = true;
+                    
+                    // Envoyer les données
+                    const response = await fetch(scriptURL, {
                         method: 'POST',
-                        body: formData,
-                        mode: 'no-cors'
+                        body: formData
                     });
                     
-                    alert('✅ Merci ! Votre adhésion a bien été enregistrée.');
-                    adhesionForm.reset();
+                    // Restaurer le bouton
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                    
+                    if (response.ok) {
+                        alert('✅ Merci ! Votre adhésion a bien été enregistrée.\n\nNous vous contacterons prochainement.');
+                        adhesionForm.reset();
+                    } else {
+                        throw new Error('Erreur de réponse du serveur');
+                    }
                 } catch (error) {
-                    alert('❌ Une erreur est survenue. Veuillez réessayer.');
-                    console.error(error);
+                    console.error('Erreur:', error);
+                    alert('❌ Une erreur est survenue lors de l\'envoi.\n\nVeuillez réessayer ou nous contacter directement par email.');
+                    
+                    // Restaurer le bouton en cas d'erreur
+                    const submitBtn = adhesionForm.querySelector('button[type="submit"]');
+                    submitBtn.textContent = '✅ Envoyer ma candidature';
+                    submitBtn.disabled = false;
                 }
             });
         }
 
-        if (contactForm) {
-            contactForm.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                
-                const formData = new FormData(contactForm);
-                const url = 'https://script.google.com/macros/s/AKfycbzPFDIBczma1opt6D2Ddk4WZ6U3Z4WC1aJQByF7LN5NjJ3CwB0ZpWO8U2K27iVgbnr0/exec';
-                
-                try {
-                    const response = await fetch(url, {
-                        method: 'POST',
-                        body: formData,
-                        mode: 'no-cors'
-                    });
-                    
-                    alert('✅ Message envoyé avec succès !');
-                    contactForm.reset();
-                } catch (error) {
-                    alert('❌ Une erreur est survenue. Veuillez réessayer.');
-                    console.error(error);
+        // ========================================
+        // INITIALISATION
+        // ========================================
+        document.addEventListener('DOMContentLoaded', () => {
+            // Afficher la page d'accueil par défaut
+            showPage('accueil');
+
+            // Gestion du clic sur le logo
+            const navLogo = document.querySelector('.nav-logo');
+            if (navLogo) {
+                navLogo.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    showPage('accueil');
+                });
+            }
+        });
+
+        // Fermer le menu mobile lors du clic sur un lien
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                const menu = document.querySelector('.nav-menu');
+                if (menu) {
+                    menu.classList.remove('active');
                 }
             });
-        }
-    </script>
-
-    <script>
-        // Lightbox simple et fluide
-        // Lightbox Gallery
-        function openLightbox(element) {
-            const lightbox = document.getElementById('lightbox');
-            const lightboxImg = document.getElementById('lightbox-img');
-            
-            // Vérifier si c'est une vidéo
-            const video = element.querySelector('video');
-            if (video) {
-                // Remplacer l'image par une vidéo
-                lightboxImg.style.display = 'none';
-                
-                // Créer ou récupérer l'élément vidéo lightbox
-                let lightboxVideo = document.getElementById('lightbox-video');
-                if (!lightboxVideo) {
-                    lightboxVideo = document.createElement('video');
-                    lightboxVideo.id = 'lightbox-video';
-                    lightboxVideo.style.maxWidth = '90%';
-                    lightboxVideo.style.maxHeight = '90vh';
-                    lightboxVideo.style.borderRadius = '12px';
-                    lightboxVideo.style.boxShadow = '0 10px 40px rgba(0, 0, 0, 0.6)';
-                    lightboxVideo.controls = true;
-                    lightboxVideo.autoplay = true;
-                    lightbox.insertBefore(lightboxVideo, lightboxImg);
-                }
-                lightboxVideo.src = video.src;
-                lightboxVideo.style.display = 'block';
-            } else {
-                // C'est une image
-                const img = element.querySelector('img');
-                lightboxImg.src = img.src;
-                lightboxImg.style.display = 'block';
-                
-                const lightboxVideo = document.getElementById('lightbox-video');
-                if (lightboxVideo) lightboxVideo.style.display = 'none';
-            }
-            
-            lightbox.classList.add('active');
-        }
-
-        function closeLightbox(event) {
-            if (event && event.target.id !== 'lightbox') return;
-            document.getElementById('lightbox').classList.remove('active');
-        }
-
-        // Fermer lightbox avec Escape
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeLightbox();
-            }
         });
     </script>
 </body>
 </html>
+
