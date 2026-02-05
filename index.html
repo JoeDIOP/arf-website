@@ -2664,11 +2664,12 @@
                 
                 try {
                     // Ajouter la date actuelle automatiquement
-                    const dateActuelle = new Date().toLocaleDateString('fr-FR');
-                    document.getElementById('date').value = dateActuelle;
+                    const dateInscription = new Date().toLocaleDateString('fr-FR');
+                    document.getElementById('date').value = dateInscription;
                     
                     // Récupération des champs du formulaire
                     const formData = new FormData(adhesionForm);
+                    formData.append('dateinscription', dateInscription);
                     
                     // URL du Google Apps Script
                     const scriptURL = 'https://script.google.com/macros/s/AKfycby9J9MkCNE0K2Drrl7RgKiAnsT3GuxK0RuvU4_XeuZ1nRntDDKW-EzGKfSzRKVZBQ0F/exec';
