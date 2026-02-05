@@ -2417,33 +2417,33 @@
                             <h3>📝 Formulaire d'Adhésion</h3>
                             <form id="adhesionForm">
                                 <div class="form-group">
-                                    <label for="nometprenom">Nom et Prénom *</label>
-                                    <input type="text" id="nometprenom" name="nometprenom" required>
+                                    <label for="nom">NOM et Prénom *</label>
+                                    <input type="text" id="nom" name="NOM et Prénom" required>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="email">Email *</label>
-                                    <input type="email" id="email" name="email" required>
+                                    <input type="email" id="email" name="Email" required>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="telephone">Téléphone</label>
-                                    <input type="tel" id="telephone" name="telephone">
+                                    <input type="tel" id="telephone" name="Téléphone">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="villagequartier">Village/Quartier *</label>
-                                    <input type="text" id="villagequartier" name="villagequartier" required>
+                                    <label for="village">Village *</label>
+                                    <input type="text" id="village" name="Village" required>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="motivations">Pourquoi souhaitez-vous rejoindre l'ARF ?</label>
-                                    <textarea id="motivations" name="motivations" rows="4" required></textarea>
+                                    <textarea id="motivations" name="Motivations" rows="4" required></textarea>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="participation">Dans quel(s) domaine(s) souhaitez-vous contribuer ?</label>
-                                    <select id="participation" name="participation" required>
+                                    <label for="domaine">Dans quel(s) domaine(s) souhaitez-vous contribuer ?</label>
+                                    <select id="domaine" name="Domaine d'intérêt" required>
                                         <option value="">-- Sélectionnez --</option>
                                         <option value="Cohésion Sociale">Cohésion Sociale</option>
                                         <option value="Administration et Gouvernance">Administration et Gouvernance</option>
@@ -2457,7 +2457,7 @@
                                     </select>
                                 </div>
 
-                                <input type="hidden" id="dateinscription" name="dateinscription">
+                                <input type="hidden" id="date" name="Date">
 
                                 <div class="form-group">
                                     <label>
@@ -2663,8 +2663,9 @@
                 }
                 
                 try {
-                    // Ajouter la date d'inscription automatiquement
-                    const dateInscription = new Date().toLocaleDateString('fr-FR');
+                    // Ajouter la date actuelle automatiquement
+                    const dateActuelle = new Date().toLocaleDateString('fr-FR');
+                    document.getElementById('date').value = dateActuelle;
                     
                     // Récupération des champs du formulaire
                     const formData = new FormData(adhesionForm);
@@ -2672,10 +2673,7 @@
                     // URL du Google Apps Script
                     const scriptURL = 'https://script.google.com/macros/s/AKfycby9J9MkCNE0K2Drrl7RgKiAnsT3GuxK0RuvU4_XeuZ1nRntDDKW-EzGKfSzRKVZBQ0F/exec';
                     
-                    // Ajouter la date au FormData
-                    formData.append('dateinscription', dateInscription);
-                    
-                    // Envoyer les données en FormData (pas en JSON)
+                    // Envoyer les données en FormData
                     const response = await fetch(scriptURL, {
                         method: 'POST',
                         body: formData,
