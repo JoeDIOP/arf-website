@@ -1487,6 +1487,193 @@
         .axe-cohesion .btn-primary {
             background: var(--axe-cohesion);
         }
+        /* ========================================
+           MODAL PUBLICATION
+        ======================================== */
+        .pub-modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.65);
+            z-index: 9000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            animation: fadeIn 0.25s ease forwards;
+        }
+
+        .pub-modal-overlay.active {
+            display: flex;
+        }
+
+        .pub-modal {
+            background: #fff;
+            border-radius: 16px;
+            max-width: 780px;
+            width: 100%;
+            max-height: 88vh;
+            overflow-y: auto;
+            box-shadow: 0 24px 60px rgba(0,0,0,0.25);
+            animation: slideUp 0.3s ease forwards;
+            position: relative;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .pub-modal-header {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: #fff;
+            padding: 30px 35px 25px;
+            border-radius: 16px 16px 0 0;
+            position: relative;
+        }
+
+        .pub-modal-header .modal-category-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.25);
+            color: #fff;
+            font-size: 0.78em;
+            font-weight: 600;
+            padding: 4px 14px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .pub-modal-header h2 {
+            font-size: 1.55em;
+            font-weight: 700;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .pub-modal-header .modal-meta {
+            font-size: 0.88em;
+            opacity: 0.85;
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .pub-modal-close {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: #fff;
+            font-size: 1.4em;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+
+        .pub-modal-close:hover {
+            background: rgba(255,255,255,0.4);
+        }
+
+        .pub-modal-body {
+            padding: 32px 35px 28px;
+        }
+
+        .pub-modal-body h3 {
+            color: var(--primary-color);
+            font-size: 1.1em;
+            margin: 24px 0 10px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #e8f5ec;
+        }
+
+        .pub-modal-body h3:first-child {
+            margin-top: 0;
+        }
+
+        .pub-modal-body p {
+            color: var(--text-light);
+            line-height: 1.75;
+            margin-bottom: 12px;
+            text-align: justify;
+        }
+
+        .pub-modal-body ul,
+        .pub-modal-body ol {
+            color: var(--text-light);
+            padding-left: 22px;
+            line-height: 1.85;
+            margin-bottom: 12px;
+        }
+
+        .pub-modal-body li {
+            margin-bottom: 5px;
+        }
+
+        .pub-modal-footer {
+            padding: 18px 35px 28px;
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            border-top: 1px solid #eee;
+        }
+
+        .pub-modal-footer .btn-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--primary-color);
+            color: #fff;
+            padding: 11px 22px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95em;
+            cursor: pointer;
+            border: none;
+            transition: background 0.3s, transform 0.2s;
+            text-decoration: none;
+        }
+
+        .pub-modal-footer .btn-download:hover {
+            background: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .pub-modal-footer .btn-close-modal {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+            color: var(--secondary-color);
+            padding: 11px 22px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95em;
+            cursor: pointer;
+            border: 2px solid #ddd;
+            transition: all 0.3s;
+        }
+
+        .pub-modal-footer .btn-close-modal:hover {
+            border-color: var(--secondary-color);
+            background: #f5f5f5;
+        }
+
+        @media (max-width: 600px) {
+            .pub-modal-header,
+            .pub-modal-body,
+            .pub-modal-footer {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            .pub-modal-header h2 { font-size: 1.2em; }
+        }
     </style>
 </head>
 <body>
@@ -1646,11 +1833,11 @@
                     <div class="events-container">
                         <!-- Event 1 -->
                         <div class="event-card">
-                            <div class="event-date">15 Janvier 2026</div>
-                            <div class="event-title">Assemblée Générale de Lancement</div>
-                            <div class="event-location">Salle Communautaire de Fandène</div>
+                            <div class="event-date">09 mars 2026</div>
+                            <div class="event-title">Appel de Lancement</div>
+                            <div class="event-location">Fandène</div>
                             <div class="event-description">
-                                Première assemblée générale pour présenter la vision et la mission de l'ARF. Nous vous invitons à participer et à prendre part à cette aventure collective pour le renouveau de notre commune.
+                                Premier appel pour présenter la vision et la mission de l'ARF. Nous vous invitons à vous abonner sur la page Facebook de l'ARF pour suivre cette aventure collective pour le renouveau de notre Commune.
                             </div>
                         </div>
 
@@ -1699,11 +1886,11 @@
                         </div>
 
                         <div class="about-cards">
-                            <div class="about-card"><div class="card-icon">🎯</div><h3>Notre Vision</h3><p>Construire un <strong>Fandène uni, prospère et autonome</strong>, où chaque citoyen vit dignement, participe activement aux décisions collectives, et bénéficie d'un développement harmonieux fondé sur la justice sociale, la valorisation des ressources locales et la préservation de notre identité culturelle. Nous rêvons d'un Fandène qui inspire, d'un Fandène comme modèle de résilience, d'innovation et de solidarité, capable de porter haut les aspirations de ses enfants tout en restant fidèle à ses racines.<br><strong>Par une pensée globale, nous dessinerons les voies du développement de Fandène.</strong> </p></div>
+                            <div class="about-card"><div class="card-icon"></div><h3>Notre Vision</h3><p>Construire un <strong>Fandène uni, prospère et autonome</strong>, où chaque citoyen vit dignement, participe activement aux décisions collectives, et bénéficie d'un développement harmonieux fondé sur la justice sociale, la valorisation des ressources locales et la préservation de notre identité culturelle. Nous rêvons d'un Fandène qui inspire, d'un Fandène comme modèle de résilience, d'innovation et de solidarité, capable de porter haut les aspirations de ses enfants tout en restant fidèle à ses racines.<br><strong>Par une pensée globale, nous dessinerons les voies du développement de Fandène.</strong> </p></div>
 
-                            <div class="about-card"><div class="card-icon">⚡</div><h3>Notre Mission</h3><p>Axé sur un modèle de développement global, notre mission est d'Agir concrètement pour le renouveau économique, social, culturel et environnemental de Fandène, en mobilisant les forces vives de la communauté autour d'un projet collectif, inclusif et durable.<br><strong>Par l'action, l'écoute et l'unité, nous bâtirons ensemble le Fandène de demain.</strong> </p></div>
+                            <div class="about-card"><div class="card-icon"></div><h3>Notre Mission</h3><p>Axé sur un modèle de développement global, notre mission est d'Agir concrètement pour le renouveau économique, social, culturel et environnemental de Fandène, en mobilisant les forces vives de la communauté autour d'un projet collectif, inclusif et durable.<br><strong>Par l'action, l'écoute et l'unité, nous bâtirons ensemble le Fandène de demain.</strong> </p></div>
 
-                            <div class="about-card"><div class="card-icon">📋</div><h3>Nos principes</h3><p>1. Gouvernance responsable et participative : La prise de décision doit impliquer toutes les couches de la société, en favorisant la concertation et la consultation citoyenne.<br>
+                            <div class="about-card"><div class="card-icon"></div><h3>Nos principes</h3><p>1. Gouvernance responsable et participative : La prise de décision doit impliquer toutes les couches de la société, en favorisant la concertation et la consultation citoyenne.<br>
                             2. Autonomie et autosuffisance économique : Nous encourageons la création de richesses locales à travers l'entrepreneuriat, l'innovation et l'exploitation durable des ressources de Fandène.<br>
                             3. Primauté de l'intérêt général : Nos actions seront toujours guidées par l'intérêt collectif plutôt que par des ambitions personnelles ou partisanes.<br>
                             4. Promotion de la jeunesse et des femmes : La jeunesse et les femmes sont au cœur de notre projet de société. Nous nous engageons à leur offrir des opportunités de formation, d'emploi et de leadership. Nous portons la solidarité intergénérationnelle et l'inclusion sociale comme des priorités de gouvernance.<br>
@@ -2201,16 +2388,16 @@
 
                     <div class="publications-grid">
                         <!-- Publication 1 -->
-                        <div class="publication-card" data-category="economie">
+                        <div class="publication-card" data-category="economie" data-pub-id="pub1">
                             <div class="card-header">
                                 <i class="fas fa-file-alt"></i>
                             </div>
                             <div class="card-content">
-                                <h3 class="card-title">Diagnostic Économique de Fandène 2024</h3>
-                                <p class="card-description">Une analyse complète de l'état actuel de l'économie locale, identifiant les secteurs porteurs et les opportunités d'investissement.</p>
+                                <h3 class="card-title">Lancement de l'ARF</h3>
+                                <p class="card-description">Le 09 mars 2026, le Comité de pilotage de l'ARF a procédé au lancement officiel du mouvement à travers sa page facebook. Cette première étape marque un tournant décisif allant dans le sens de matérialiser l'engagement citoyen de ses membres.</p>
                                 <div class="card-meta">
-                                    <span class="card-category">Économie</span>
-                                    <span><i class="fas fa-calendar-alt"></i> Janvier 2024</span>
+                                    <span class="card-category">Politique</span>
+                                    <span><i class="fas fa-calendar-alt"></i> Mars 2026</span>
                                 </div>
                             </div>
                             <div class="card-footer">
@@ -2224,7 +2411,7 @@
                         </div>
 
                         <!-- Publication 2 -->
-                        <div class="publication-card" data-category="environnement">
+                        <div class="publication-card" data-category="environnement" data-pub-id="pub2">
                             <div class="card-header">
                                 <i class="fas fa-leaf"></i>
                             </div>
@@ -2247,7 +2434,7 @@
                         </div>
 
                         <!-- Publication 3 -->
-                        <div class="publication-card" data-category="economie">
+                        <div class="publication-card" data-category="economie" data-pub-id="pub3">
                             <div class="card-header">
                                 <i class="fas fa-lightbulb"></i>
                             </div>
@@ -2270,7 +2457,7 @@
                         </div>
 
                         <!-- Publication 4 -->
-                        <div class="publication-card" data-category="education">
+                        <div class="publication-card" data-category="education" data-pub-id="pub4">
                             <div class="card-header">
                                 <i class="fas fa-graduation-cap"></i>
                             </div>
@@ -2289,7 +2476,7 @@
                         </div>
 
                         <!-- Publication 5 -->
-                        <div class="publication-card" data-category="cohesion">
+                        <div class="publication-card" data-category="cohesion" data-pub-id="pub5">
                             <div class="card-header">
                                 <i class="fas fa-newspaper"></i>
                             </div>
@@ -2312,7 +2499,7 @@
                         </div>
 
                         <!-- Publication 6 -->
-                        <div class="publication-card" data-category="sante">
+                        <div class="publication-card" data-category="sante" data-pub-id="pub6">
                             <div class="card-header">
                                 <i class="fas fa-heartbeat"></i>
                             </div>
@@ -2335,7 +2522,7 @@
                         </div>
 
                         <!-- Publication 7 -->
-                        <div class="publication-card" data-category="environnement">
+                        <div class="publication-card" data-category="environnement" data-pub-id="pub7">
                             <div class="card-header">
                                 <i class="fas fa-recycle"></i>
                             </div>
@@ -2358,7 +2545,7 @@
                         </div>
 
                         <!-- Publication 8 -->
-                        <div class="publication-card" data-category="cohesion">
+                        <div class="publication-card" data-category="cohesion" data-pub-id="pub8">
                             <div class="card-header">
                                 <i class="fas fa-newspaper"></i>
                             </div>
@@ -2381,7 +2568,7 @@
                         </div>
 
                         <!-- Publication 9 -->
-                        <div class="publication-card" data-category="cohesion">
+                        <div class="publication-card" data-category="cohesion" data-pub-id="pub9">
                             <div class="card-header">
                                 <i class="fas fa-users"></i>
                             </div>
@@ -2552,14 +2739,14 @@
                 <div class="footer-section">
                     <h4>Contact</h4>
                     <p>📍 Fandène, Sénégal</p>
-                    <p>📧 fandenearf@gmail.com</p>
-                    <p>📞 +221 XX XXX XX XX</p>
+                    <p>📧 <a href="mailto:fandenearf@gmail.com">fandenearf@gmail.com</a></p>
+                    <p>📞 +221 77 175 70 62</p>
                 </div>
 
                 <div class="footer-section">
                     <h4>Suivez-nous</h4>
                     <div class="social-links">
-                        <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.facebook.com/share/1CbU5iTm1q/?mibextid=wwXIfr" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
                         <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                         <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                         <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
@@ -2571,9 +2758,33 @@
                 <p>&copy; 2026 ARF - Alliance pour le Renouveau de Fandène. Tous droits réservés.</p>
             </div>
         </div>
+    <!-- MODAL PUBLICATION -->
+    <div class="pub-modal-overlay" id="pubModalOverlay" onclick="closePubModal(event)">
+        <div class="pub-modal" id="pubModal">
+            <div class="pub-modal-header">
+                <button class="pub-modal-close" onclick="closePubModal()" aria-label="Fermer">&times;</button>
+                <span class="modal-category-badge" id="modalBadge"></span>
+                <h2 id="modalTitle"></h2>
+                <div class="modal-meta">
+                    <span id="modalDate"></span>
+                    <span id="modalPages"></span>
+                </div>
+            </div>
+            <div class="pub-modal-body" id="modalBody"></div>
+            <div class="pub-modal-footer">
+                <button class="btn-download" id="modalDownloadBtn" onclick="handleModalDownload()">
+                    <i class="fas fa-download"></i> Télécharger le document
+                </button>
+                <button class="btn-close-modal" onclick="closePubModal()">
+                    <i class="fas fa-times"></i> Fermer
+                </button>
+            </div>
+        </div>
+    </div>
+
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // ========================================
         // GESTION DES PAGES
         // ========================================
@@ -2772,21 +2983,336 @@
             });
         });
 
-        // Boutons publications : comportement temporaire
-        document.querySelectorAll('.btn-download').forEach(btn => {
-            btn.addEventListener('click', function (e) {
-                e.preventDefault();
-                alert("Le fichier sera bientôt disponible au téléchargement.");
-            });
+        // ========================================
+        // MODAL PUBLICATIONS
+        // ========================================
+        const publicationsData = {
+            pub1: {
+                title: "Lancement de l'ARF",
+                category: "Politique",
+                date: "Mars 2026",
+                pages: "Document officiel",
+                file: null,
+                body: `
+                    <h3>📌 Présentation</h3>
+                    <p>Le 09 mars 2026, le Comité de pilotage de l'Alliance pour le Renouveau de Fandène (ARF) a procédé au lancement officiel du mouvement via sa page Facebook. Cette première étape marque un tournant décisif dans la matérialisation de l'engagement citoyen de ses membres.</p>
+
+                    <h3>🎯 Contexte et objectifs</h3>
+                    <p>Face aux défis structurels que connaît la Commune de Fandène — déclin économique, fragilité sociale, dégradation environnementale — les membres fondateurs ont décidé de se constituer en un mouvement structuré, capable d'impulser un changement durable et profond.</p>
+                    <ul>
+                        <li>Fédérer les forces vives de Fandène autour d'un projet collectif</li>
+                        <li>Proposer des alternatives concrètes et participatives au développement local</li>
+                        <li>Mobiliser la jeunesse, les femmes et les acteurs de terrain</li>
+                    </ul>
+
+                    <h3>📣 Actions de lancement</h3>
+                    <p>Le lancement s'est articulé autour d'une campagne de communication sur les réseaux sociaux, d'un appel à l'adhésion et de la présentation publique de la charte fondatrice du mouvement. Des réunions de proximité sont prévues dans les prochaines semaines pour recueillir les contributions citoyennes.</p>
+
+                    <h3>🔭 Perspectives</h3>
+                    <p>Dans les mois à venir, l'ARF organisera des ateliers thématiques pour affiner son programme d'action et déployer ses axes stratégiques sur le terrain. Rejoignez le mouvement et participez à la construction du Fandène de demain !</p>
+                `
+            },
+            pub2: {
+                title: "Étude d'Impact Environnemental",
+                category: "Environnement",
+                date: "Février 2024",
+                pages: "48 pages",
+                file: null,
+                body: `
+                    <h3>📌 Résumé exécutif</h3>
+                    <p>Cette étude réalise une évaluation détaillée des enjeux écologiques de Fandène et formule des recommandations concrètes pour une transition environnementale durable, en cohérence avec les objectifs de développement durables (ODD) des Nations Unies.</p>
+
+                    <h3>🌍 Principaux constats</h3>
+                    <ul>
+                        <li>Dégradation progressive du couvert végétal et réduction des zones boisées</li>
+                        <li>Gestion insuffisante des déchets solides et des eaux usées</li>
+                        <li>Vulnérabilité croissante face aux effets du changement climatique (sécheresse, érosion)</li>
+                        <li>Pression sur les ressources en eau et les terres agricoles</li>
+                    </ul>
+
+                    <h3>✅ Recommandations prioritaires</h3>
+                    <ol>
+                        <li>Mettre en place un programme de reboisement communautaire</li>
+                        <li>Créer un système de collecte et de tri des déchets à l'échelle communale</li>
+                        <li>Développer des infrastructures de récupération des eaux pluviales</li>
+                        <li>Sensibiliser les populations aux bonnes pratiques environnementales</li>
+                    </ol>
+
+                    <h3>📊 Indicateurs de suivi</h3>
+                    <p>Taux de couverture végétale, volume de déchets collectés, nombre d'arbres plantés par an, et indice de qualité de l'eau constituent les principaux indicateurs retenus pour mesurer les progrès.</p>
+                `
+            },
+            pub3: {
+                title: "Guide de l'Entrepreneuriat Local",
+                category: "Économie",
+                date: "Mars 2024",
+                pages: "62 pages",
+                file: null,
+                body: `
+                    <h3>📌 À propos de ce guide</h3>
+                    <p>Ce manuel pratique a été conçu pour accompagner les porteurs de projets économiques à Fandène, en leur fournissant les outils, ressources et contacts nécessaires pour créer et développer une entreprise viable dans la commune.</p>
+
+                    <h3>🏗️ Contenu du guide</h3>
+                    <ul>
+                        <li><strong>Chapitre 1 :</strong> Identifier son idée de business et valider le marché local</li>
+                        <li><strong>Chapitre 2 :</strong> Les étapes administratives de création d'entreprise au Sénégal</li>
+                        <li><strong>Chapitre 3 :</strong> Sources de financement disponibles (microfinance, fonds locaux, subventions)</li>
+                        <li><strong>Chapitre 4 :</strong> Marketing et vente dans un contexte rural et semi-urbain</li>
+                        <li><strong>Chapitre 5 :</strong> Gestion financière et comptabilité simplifiée</li>
+                        <li><strong>Chapitre 6 :</strong> Répertoire des acteurs d'appui à l'entrepreneuriat à Fandène</li>
+                    </ul>
+
+                    <h3>🎯 Public cible</h3>
+                    <p>Ce guide s'adresse en priorité aux jeunes entrepreneurs, aux femmes portant des projets d'activités génératrices de revenus, et aux acteurs du secteur agricole souhaitant structurer leur activité.</p>
+
+                    <h3>💡 Ressources complémentaires</h3>
+                    <p>Le guide inclut des fiches pratiques téléchargeables, un modèle de plan d'affaires simplifié et une liste des formations disponibles dans la région.</p>
+                `
+            },
+            pub4: {
+                title: "Rapport sur l'Éducation et Formation",
+                category: "Éducation",
+                date: "Avril 2024",
+                pages: "55 pages",
+                file: null,
+                body: `
+                    <h3>📌 Présentation du rapport</h3>
+                    <p>Ce rapport dresse un état des lieux complet du secteur éducatif à Fandène et propose un plan d'action ambitieux pour améliorer la qualité et l'accessibilité de l'éducation à tous les niveaux.</p>
+
+                    <h3>📉 Principaux défis identifiés</h3>
+                    <ul>
+                        <li>Taux d'abandon scolaire élevé, notamment chez les jeunes filles</li>
+                        <li>Manque d'infrastructures scolaires adaptées et sous-équipement des établissements</li>
+                        <li>Insuffisance des enseignants qualifiés dans certaines disciplines clés</li>
+                        <li>Faible accès à la formation professionnelle et technique</li>
+                        <li>Absence de dispositifs de soutien aux élèves en difficulté</li>
+                    </ul>
+
+                    <h3>📈 Plan d'action proposé</h3>
+                    <ol>
+                        <li>Réhabilitation et construction de salles de classe</li>
+                        <li>Programme de bourses pour maintien des filles à l'école</li>
+                        <li>Centre de formation professionnelle et apprentissage des métiers</li>
+                        <li>Partenariat avec des ONG pour la fourniture de matériel pédagogique</li>
+                        <li>Appui à la scolarisation des enfants en situation de handicap</li>
+                    </ol>
+
+                    <h3>🤝 Partenaires envisagés</h3>
+                    <p>Ministère de l'Éducation nationale, collectivités territoriales, organisations de la société civile, diaspora de Fandène et partenaires techniques et financiers internationaux.</p>
+                `
+            },
+            pub5: {
+                title: "Newsletter Décembre 2024",
+                category: "Newsletter",
+                date: "Décembre 2024",
+                pages: "8 pages",
+                file: null,
+                body: `
+                    <h3>📣 Mot de la rédaction</h3>
+                    <p>Cette édition de décembre clôture une année riche en initiatives, rencontres et mobilisations. Nous remercions tous les membres et sympathisants qui ont contribué à faire vivre l'ARF tout au long de cette année.</p>
+
+                    <h3>📰 Au sommaire de ce numéro</h3>
+                    <ul>
+                        <li><strong>Bilan 2024 :</strong> Retour sur les actions menées et les résultats obtenus</li>
+                        <li><strong>Portrait :</strong> Rencontre avec Marie Diouf, coordinatrice du pôle Femmes & Jeunesse</li>
+                        <li><strong>Projet du mois :</strong> Lancement du programme de jardin communautaire</li>
+                        <li><strong>Agenda :</strong> Les rendez-vous de janvier 2025</li>
+                        <li><strong>Ressources :</strong> Sélection de lectures et outils pour le développement local</li>
+                    </ul>
+
+                    <h3>🏆 Temps forts de l'année</h3>
+                    <p>Parmi les moments marquants de 2024 : l'atelier entrepreneuriat de janvier ayant réuni 80 participants, la journée de reboisement de juin avec la plantation de 500 arbres, et la première assemblée générale de l'ARF en septembre avec l'adoption de la charte fondatrice.</p>
+
+                    <h3>📅 À venir en 2025</h3>
+                    <p>L'ARF prépare le lancement de son programme de micro-financement, l'ouverture d'un centre d'écoute pour les jeunes, et la mise en place d'un conseil consultatif citoyen à Fandène.</p>
+                `
+            },
+            pub6: {
+                title: "Étude de Santé et Bien-être",
+                category: "Santé",
+                date: "Mai 2024",
+                pages: "41 pages",
+                file: null,
+                body: `
+                    <h3>📌 Contexte de l'étude</h3>
+                    <p>Cette étude analyse l'état de santé des populations de Fandène et formule des recommandations concrètes pour renforcer le système de santé communautaire, en tenant compte des réalités locales et des ressources disponibles.</p>
+
+                    <h3>🏥 Constats principaux</h3>
+                    <ul>
+                        <li>Accès limité aux soins de santé primaires, surtout pour les zones enclavées</li>
+                        <li>Prévalence élevée du paludisme et des maladies hydriques</li>
+                        <li>Déficit en personnel soignant qualifié et en équipements médicaux</li>
+                        <li>Manque de sensibilisation sur la nutrition, la santé maternelle et infantile</li>
+                        <li>Absence d'infrastructure dédiée à la santé mentale</li>
+                    </ul>
+
+                    <h3>💊 Recommandations</h3>
+                    <ol>
+                        <li>Renforcement du poste de santé communal avec équipements de base</li>
+                        <li>Programme de vaccination et de prévention ciblant les enfants et les femmes enceintes</li>
+                        <li>Campagnes d'assainissement pour réduire les maladies hydriques</li>
+                        <li>Formation d'agents de santé communautaires</li>
+                        <li>Création d'une unité de soutien psychosocial</li>
+                    </ol>
+
+                    <h3>📊 Indicateurs de santé clés</h3>
+                    <p>Taux de mortalité infantile, couverture vaccinale, ratio habitants/personnel soignant, et taux d'accès à l'eau potable sont les indicateurs prioritaires retenus pour suivre l'amélioration de la santé communautaire.</p>
+                `
+            },
+            pub7: {
+                title: "Guide des Pratiques Durables",
+                category: "Environnement",
+                date: "Juin 2024",
+                pages: "36 pages",
+                file: null,
+                body: `
+                    <h3>📌 Présentation</h3>
+                    <p>Ce guide pratique s'adresse à tous les habitants de Fandène souhaitant adopter un mode de vie plus respectueux de l'environnement. Il propose des conseils accessibles, adaptés au contexte local et immédiatement applicables au quotidien.</p>
+
+                    <h3>🌿 Thématiques abordées</h3>
+                    <ul>
+                        <li><strong>Gestion des déchets :</strong> Tri, compostage, réutilisation et réduction des emballages plastiques</li>
+                        <li><strong>Eau :</strong> Économies d'eau, récupération des eaux de pluie et protection des points d'eau</li>
+                        <li><strong>Énergie :</strong> Utilisation des énergies renouvelables (solaire) et réduction de la consommation</li>
+                        <li><strong>Agriculture :</strong> Pratiques agro-écologiques, jardins familiaux et permaculture</li>
+                        <li><strong>Mobilité :</strong> Transports doux et covoiturage pour réduire l'empreinte carbone</li>
+                    </ul>
+
+                    <h3>🛠️ Fiches pratiques incluses</h3>
+                    <p>Le guide contient 12 fiches pratiques illustrées couvrant des gestes concrets : fabriquer du compost, installer un récupérateur d'eau de pluie, créer un potager familial, et bien d'autres activités accessibles à tous.</p>
+
+                    <h3>👨‍👩‍👧 Impliquer sa communauté</h3>
+                    <p>Un chapitre entier est dédié aux actions collectives : comment organiser une journée de nettoyage, mobiliser ses voisins pour un projet de reboisement, ou créer un groupe de sensibilisation environnementale dans son quartier.</p>
+                `
+            },
+            pub8: {
+                title: "Newsletter Novembre 2024",
+                category: "Newsletter",
+                date: "Novembre 2024",
+                pages: "8 pages",
+                file: null,
+                body: `
+                    <h3>📣 Édito</h3>
+                    <p>Ce mois de novembre a été particulièrement riche en mobilisation citoyenne. Plusieurs chantiers avancent concrètement et nous sommes heureux de partager ces progrès avec vous dans cette nouvelle édition de notre newsletter.</p>
+
+                    <h3>📰 Au sommaire</h3>
+                    <ul>
+                        <li><strong>Actualité :</strong> Retour sur l'assemblée de concertation citoyenne du 15 novembre</li>
+                        <li><strong>Projet :</strong> Avancement du programme d'appui aux femmes entrepreneures</li>
+                        <li><strong>Tribune :</strong> « Pourquoi j'ai rejoint l'ARF » — témoignage d'un membre</li>
+                        <li><strong>Appel à participation :</strong> Chantier de réhabilitation de la place publique</li>
+                        <li><strong>Agenda :</strong> Les événements de décembre</li>
+                    </ul>
+
+                    <h3>🎙️ Parole aux membres</h3>
+                    <p>Nous donnons la parole ce mois-ci à Ousmane Diallo, membre fondateur du pôle économie, qui revient sur les ambitions du programme de micro-financement en cours de construction.</p>
+
+                    <h3>🚀 Appels à participation</h3>
+                    <p>Nous recrutons des bénévoles pour animer des ateliers de formation numérique pour les jeunes, et des coordinateurs de quartier pour renforcer la communication de proximité au sein de la commune.</p>
+                `
+            },
+            pub9: {
+                title: "Rapport de Cohésion Sociale",
+                category: "Cohésion Sociale",
+                date: "Juillet 2024",
+                pages: "50 pages",
+                file: null,
+                body: `
+                    <h3>📌 Présentation du rapport</h3>
+                    <p>Ce rapport analyse les dynamiques de cohésion et d'exclusion sociale à Fandène et propose des pistes d'action concrètes pour renforcer l'unité communautaire, l'inclusion et la participation citoyenne de toutes les catégories de population.</p>
+
+                    <h3>🔍 Diagnostic social</h3>
+                    <ul>
+                        <li>Tensions intergénérationnelles et manque de dialogue entre anciens et jeunes</li>
+                        <li>Faible représentation des femmes dans les instances de décision locales</li>
+                        <li>Marginalisation des personnes en situation de handicap et de vulnérabilité</li>
+                        <li>Difficultés d'intégration des populations migrantes de retour</li>
+                        <li>Espaces de rencontre et de socialisation insuffisants</li>
+                    </ul>
+
+                    <h3>🤝 Propositions d'actions</h3>
+                    <ol>
+                        <li>Création d'un Conseil consultatif citoyen mixte (jeunes, femmes, anciens)</li>
+                        <li>Programme de mentorat intergénérationnel</li>
+                        <li>Soutien aux associations culturelles et sportives locales</li>
+                        <li>Mise en place d'un fonds de solidarité pour les plus vulnérables</li>
+                        <li>Organisation d'événements fédérateurs annuels (fêtes communales, journées sportives)</li>
+                    </ol>
+
+                    <h3>📏 Mesure de l'impact</h3>
+                    <p>L'indice de participation citoyenne, le nombre d'associations actives, le taux d'inclusion des femmes dans les prises de décision et le sentiment d'appartenance mesuré par enquête constituent les principaux outils d'évaluation proposés.</p>
+                `
+            }
+        };
+
+        function openPubModal(pubId) {
+            const data = publicationsData[pubId];
+            if (!data) return;
+
+            document.getElementById('modalBadge').textContent = data.category;
+            document.getElementById('modalTitle').textContent = data.title;
+            document.getElementById('modalDate').innerHTML = '<i class="fas fa-calendar-alt"></i> ' + data.date;
+            document.getElementById('modalPages').innerHTML = data.pages ? '<i class="fas fa-file-alt"></i> ' + data.pages : '';
+            document.getElementById('modalBody').innerHTML = data.body;
+            document.getElementById('pubModalOverlay').dataset.pubId = pubId;
+
+            const overlay = document.getElementById('pubModalOverlay');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePubModal(event) {
+            if (event && event.target !== document.getElementById('pubModalOverlay') && !event.target.closest('.pub-modal-close') && !event.target.closest('.btn-close-modal')) return;
+            document.getElementById('pubModalOverlay').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function handleModalDownload() {
+            const pubId = document.getElementById('pubModalOverlay').dataset.pubId;
+            const data = publicationsData[pubId];
+            if (data && data.file) {
+                window.open(data.file, '_blank');
+            } else {
+                alert("📄 Ce document sera bientôt disponible au téléchargement.\n\nContactez-nous à fandenearf@gmail.com pour l'obtenir dès maintenant.");
+            }
+        }
+
+        // Fermer avec Échap
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.getElementById('pubModalOverlay').classList.remove('active');
+                document.body.style.overflow = '';
+            }
         });
 
-        document.querySelectorAll('.btn-view').forEach(btn => {
-            btn.addEventListener('click', function (e) {
-                e.preventDefault();
-                alert("La consultation en ligne sera bientôt disponible.");
+        // Attacher les boutons Consulter et Télécharger des cartes
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.publication-card').forEach(card => {
+                const pubId = card.dataset.pubId;
+                if (!pubId) return;
+
+                const viewBtn = card.querySelector('.btn-view');
+                const downloadBtn = card.querySelector('.btn-download');
+
+                if (viewBtn) {
+                    viewBtn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        openPubModal(pubId);
+                    });
+                }
+
+                if (downloadBtn) {
+                    downloadBtn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const data = publicationsData[pubId];
+                        if (data && data.file) {
+                            window.open(data.file, '_blank');
+                        } else {
+                            alert("📄 Ce document sera bientôt disponible au téléchargement.\n\nContactez-nous à fandenearf@gmail.com pour l'obtenir dès maintenant.");
+                        }
+                    });
+                }
             });
         });
     </script>
-</body>
 </html>
-
